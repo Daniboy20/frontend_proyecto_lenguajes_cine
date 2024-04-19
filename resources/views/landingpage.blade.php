@@ -35,7 +35,8 @@
                
                 <div class="rightHeaderContainer">
                     <div class="loginContainer">
-                        <h1 class="login">LOGIN</h1>
+                    <h1 class="login">ADMINISTRAR</h1>
+                        <h1 class="login">REGISTRARSE</h1>
                     </div>
                 </div>
             </div>
@@ -55,15 +56,36 @@
                             <div class="lines" id="line1"></div>
 
                             <div class="functionContainer">
+
+                            <!-- Hacer un for Each, Para cada Pelicula -->
                                 <div class="showMovie">
                                     <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
                                         <div class="descriptionContainer">
                                         <h5>Avatar</h5>
-                                        
-                                    </div>
-                                    
-                                   
+                                        </div>
                                 </div>
+
+                                <div class="showMovie">
+                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                        <div class="descriptionContainer">
+                                        <h5>Nombre de Pelicula</h5>
+                                        </div>
+                                </div>
+
+                                <div class="showMovie">
+                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                        <div class="descriptionContainer">
+                                        <h5>Avatar</h5>
+                                        </div>
+                                </div>
+
+                                <div class="showMovie">
+                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                        <div class="descriptionContainer">
+                                        <h5>Avatar</h5>
+                                        </div>  
+                                </div>
+
                             </div>
 
                         </div>
@@ -72,6 +94,9 @@
                             <h1>Proximamente</h1>
                             <div class="lines"></div>
                             
+                            
+
+
                             <div class="nextFunctionContainer">
 
                             </div>
