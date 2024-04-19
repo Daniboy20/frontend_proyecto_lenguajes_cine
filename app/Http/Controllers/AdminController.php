@@ -7,13 +7,14 @@ use GuzzleHttp\Client;
 
 class AdminController extends Controller
 {
-    public function crearpelicula(Request $request){
-        //se hace una instancia
+    public function crearPelicula(){
+        return view('administradorindex');
+    }
 
+    public function guardarPelicula(Request $request){
         $titulo = $request->input('titulo');
         $duracion = $request->input('duracion');
         $client = new Client();
-        
         try {
             $response = $client->request('POST', 'http://localhost:8080/api/pelicula/crear',
                 [
@@ -21,17 +22,16 @@ class AdminController extends Controller
                     'json'=>[
                         'titulo' => $titulo,
                         'duracion' => $duracion
-                    ]
+                    ],
                 ]);
 
                 if($response->getStatusCode()==200){
-                    return redirect()->route('administradorindex');
+                    return view('landingpage');
+                    // return redirect()->route('landingpage');
                 }
 
-        } catch (\Throwable $th) {
-            return response('Error' .$th->getMessage(), 500);
+        } catch (\Exception $e) {
+            return response('Error' .$e->getMessage(), 500);
         }
-
-
     }
 }
