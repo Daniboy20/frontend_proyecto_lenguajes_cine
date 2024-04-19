@@ -114,10 +114,17 @@ img.lupa
 }
 
 
-h1.login
+h1.login, h1.admin
 {
     font-size: 1em;
     color: gray;
+    cursor: pointer;
+}
+
+.rightHeaderContainer{
+    display: flex;
+    flex: row;
+    column-gap: 20px;
 }
 
 /* ------------------------------------- Body Container ------------------------------- */

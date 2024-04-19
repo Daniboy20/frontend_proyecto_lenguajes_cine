@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingPageController;
 /*
@@ -15,4 +16,5 @@ use App\Http\Controllers\LandingPageController;
 
 
 Route::get('/',[LandingPageController::class,'home'])->name('landingpage.home');
+Route::post('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearpeli');
 
