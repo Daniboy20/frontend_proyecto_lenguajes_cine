@@ -34,8 +34,11 @@
                 </div>
                
                 <div class="rightHeaderContainer">
+                    <div class="adminContainer">
+                        <h1 class="admin">Administrar</h1>
+                    </div>
                     <div class="loginContainer">
-                        <h1 class="login">LOGIN</h1>
+                        <h1 class="login">Registrarse</h1>
                     </div>
                 </div>
             </div>
