@@ -35,11 +35,10 @@
                
                 <div class="rightHeaderContainer">
                     <div class="adminContainer">
-                        <h1 class="admin">Administrar</h1>
+                        <a href="{{route('admin.index')}}"><h1 class="admin">Administrar</h1></a>
                     </div>
                     <div class="loginContainer">
-                    <h1 class="login">ADMINISTRAR</h1>
-                        <h1 class="login">REGISTRARSE</h1>
+                        <a href="{{route('...')}}"><h1 class="admin">Registrarse</h1></a>
                     </div>
                 </div>
             </div>

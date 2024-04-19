@@ -16,5 +16,7 @@ use App\Http\Controllers\LandingPageController;
 
 
 Route::get('/',[LandingPageController::class,'home'])->name('landingpage.home');
-Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearpelicula');
-Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
+Route::get('/administrador', [AdminController::class, 'adminIndex'])->name('admin.index');
+Route::get('/registrarse', [LandingPageController::class, '...'])->name('...');
+// Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearpelicula');
+// Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');

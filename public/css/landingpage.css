@@ -121,6 +121,11 @@ h1.login, h1.admin
     cursor: pointer;
 }
 
+.adminContainer a, .loginContainer a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .rightHeaderContainer{
     display: flex;
     flex: row;

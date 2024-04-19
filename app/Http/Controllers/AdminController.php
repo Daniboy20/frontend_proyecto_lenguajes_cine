@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
 class AdminController extends Controller
-{
+{   
+
+    public function adminIndex(){
+        return view('administradorindex');
+    }
+
     public function crearPelicula(){
         return view('administradorindex');
     }
