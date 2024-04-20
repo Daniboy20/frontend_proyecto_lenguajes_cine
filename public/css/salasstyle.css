@@ -1,3 +1,9 @@
+:root {
+    --color-texto: rgba(209, 210, 214, 0.858);
+    --color-fondo-secundario:rgba(45, 45, 45, 0.66);
+}
+
+
 body{
     background-color: #151412;
 }
@@ -25,6 +31,7 @@ body{
     border-radius: 10px;
     justify-items: center;
 }
+
 
 #container-peliculas{
     background-color: var(--color-fondo-secundario);
@@ -77,8 +84,8 @@ a:hover{
     border-radius: 20px;
 }
 
-#peliculas-option{
-    background-color: rgba(106, 106, 106, 0.48);
+#salas-option{
+    background-color: rgba(79, 79, 79, 0.48);
     transition: background-color 0.3s ease;
 }
 
@@ -86,4 +93,89 @@ a:hover{
     /* padding: 10px; */
     background-color: rgba(106, 106, 106, 0.48);
     transition: background-color 0.3s ease;
+}
+
+
+
+
+/* <-------Peliculas-----------> */
+.inputs-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.custom-input {
+    width: 487px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(77, 77, 77, 0.54);
+    color: rgba(211, 207, 207, 0.64);
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.s ease;
+    outline: none;
+}
+
+.custom-input:focus {
+    background-color: rgba(77, 77, 77, 0.54);
+    box-shadow: 0 0 6px rgba(245, 40, 37, 0.559);
+}
+
+
+
+.custom-input::placeholder {
+    color: rgba(211, 207, 207, 0.64);
+}
+
+.custom-input:hover {
+    background-color: rgba(77, 77, 77, 0.54);
+}
+
+.custom-input:focus::placeholder {
+    color: rgba(211, 207, 207, 0.64);
+}
+
+#container-peliculas{
+    display: grid;
+    grid-template-rows: 35% 55%;
+    row-gap: 25px;
+}
+
+#agregar-tiposala{
+    color: var(--color-texto);
+    margin-top: 70px;
+    margin-left: 90px;
+}
+
+#mostrar-peliculas{
+    margin-left: 90px;
+    margin-top: 50px;
+    color: var(--color-texto);
+}
+
+.inputs-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 30px;
+}
+
+.inputs-position{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#button-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+
+#button-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
 }
