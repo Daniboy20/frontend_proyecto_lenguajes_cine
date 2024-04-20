@@ -1,0 +1,240 @@
+body
+{
+    background-color: #eba;
+}
+
+div.cinemaplusContainer
+{
+    @media screen and (max-width: 30em) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+/* ------------------------------------- Header Container ------------------------------- */
+
+div.headerContainer
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5vh;
+    @media screen and (max-width: 64em) {
+        margin: 2vh;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 30em) {
+        margin: 1vh;
+        flex-wrap: wrap;
+    }
+
+}
+
+div.leftHeaderContainer
+{
+    display: flex;
+    align-items: center;
+}
+
+img.logo
+{
+    width: 50px;
+    height: auto;
+}
+
+h1.title
+{
+    padding-top: 3%;
+    color: white;
+    font-family: 'Inter';
+
+    font-size: 2em;
+
+    @media screen and (max-width: 64em) {
+        font-size: 2.5em;
+    }
+
+    @media screen and (max-width: 30em) {
+        font-size: 1.5em;
+    }
+}
+
+div.searchContainer
+{
+    margin-left: 6em;
+
+    @media screen and (max-width: 64em) {
+        margin-left: 1vh;
+    }
+
+    @media screen and (max-width: 30em) {
+        margin-left: 0.5vh;
+    }
+    
+}
+
+input.search
+{
+    color: white;
+    width: 40em;
+    background-color: rgb(21, 20, 18);
+    padding: 0.5em;
+    align-items: center;
+    border-radius: 1em;
+    border-style: solid;
+    border-color: gray;
+    font-family: 'Inter';
+    @media screen and (max-width: 64em) {
+        width: 20em;
+    }
+
+    @media screen and (max-width: 30em) {
+        width: 10em;
+    }
+}
+
+button.btn
+{
+    padding: 0.5em;
+    border-radius: 10em;
+    margin-left: 1em;
+    margin-bottom: 0.3em;
+
+    @media screen and (max-width: 30em) {
+        margin-left: 0em;
+    }
+}
+
+img.lupa
+{
+    width: 1.5em;
+}
+
+
+h1.login, h1.admin
+{
+    font-size: 1em;
+    color: gray;
+    cursor: pointer;
+}
+
+.rightHeaderContainer{
+    display: flex;
+    flex: row;
+    column-gap: 20px;
+}
+
+/* ------------------------------------- Body Container ------------------------------- */
+
+div.previewContainer
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+
+}
+
+img.banner
+{
+    max-width: inherit;
+    max-height: inherit;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    @media screen and (max-width: 30em) {
+        width: 0em;
+    }
+}
+
+div.movieContainer
+{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10em;
+    margin-right: 10em;
+
+    @media screen and (max-width: 64em) {
+        margin: 0em;
+    }
+
+    @media screen and (max-width: 30em) {
+        flex-wrap: wrap;
+        margin: 0em;
+    }
+}
+
+div.lines
+{
+    margin-top: 1.5em;
+    border-bottom: 1px solid rgba(255, 4, 4, 0.801);
+
+    @media screen and (max-width: 64em) {
+        width: 20em;
+    }
+
+    @media screen and (max-width: 30em) {
+        width: 18em;
+    }
+}
+
+#line1
+{
+    width: 65em;
+
+    @media screen and (max-width: 64em) {
+        width: 20em;
+    }
+
+    @media screen and (max-width: 30em) {
+        width: 18em;
+    }
+}
+
+div.functionContainer
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+
+    @media screen and (max-width: 30em) {
+        grid-template-columns: repeat(1,1fr);
+        margin-left: 21vw;
+        margin-bottom: 2em;
+    }
+}
+
+div.showMovie
+{
+    width: 12em;
+    height: auto;
+
+}
+
+div.imageFunctionContainer
+{
+    margin-top: 2em;
+    width: 12em;
+    height: auto;
+
+}
+
+img.imageFunction
+{
+    max-width: inherit;
+    max-height: inherit;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+}
+
+div.descriptionContainer
+{
+    margin-top: 1em;
+}

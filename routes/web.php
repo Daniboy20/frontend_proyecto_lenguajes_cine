@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LandingPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',[LandingPageController::class,'home'])->name('landingpage.home');
+
+Route::get('/crear/cliente',[ClienteController::class,'crearCliente'])->name('cliente.crearCliente');
+Route::post('/guardar/cliente',[ClienteController::class,'guardarCliente'])->name('cliente.guardarCliente');
+
+Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearPelicula');
+Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarPelicula');
