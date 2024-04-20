@@ -1,6 +1,6 @@
 :root {
     --color-texto: rgba(209, 210, 214, 0.858);
-    --color-fondo-secundario:rgba(77, 77, 77, 0.66);
+    --color-fondo-secundario:rgba(45, 45, 45, 0.66);
 }
 
 
@@ -85,7 +85,7 @@ a:hover{
 }
 
 #peliculas-option{
-    background-color: rgba(106, 106, 106, 0.48);
+    background-color: rgba(79, 79, 79, 0.48);
     transition: background-color 0.3s ease;
 }
 
@@ -149,5 +149,63 @@ a:hover{
 }
 
 #mostrar-peliculas{
+    margin-left: 90px;
+    margin-top: 50px;
+    color: var(--color-texto);
+}
+
+.inputs-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 30px;
+}
+
+.inputs-position{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#button-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+
+/* ----------tabla----------- */
+table {
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid rgba(255, 255, 255, 0.534);
+    border-radius: 10px;
+    padding: 8px;
+    text-align: left;
+}
+
+
+tr:hover td {
+    background-color: rgba(123, 123, 123, 0.21); /* Cambiamos el color al pasar el cursor */
+}
+
+thead {
+    background-color: rgba(77, 77, 77, 0.6);
+    color: rgba(255, 255, 255, 0.812);
+}
+
+/* tbody tr:nth-child(odd) {
+    background-color: rgba(77, 77, 77, 0.6);
+} */
+
+/* tbody tr:nth-child(even) {
+    background-color: rgba(77, 77, 77, 0.8);
+} */
+
+#agregar-tiposala{
+    color: var(--color-texto);
+    margin-top: 70px;
     margin-left: 90px;
 }

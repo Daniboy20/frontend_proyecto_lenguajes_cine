@@ -23,18 +23,24 @@ Route::post('/guardar/cliente',[ClienteController::class,'guardarCliente'])->nam
 
 
 
-Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearPelicula');
-Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarPelicula');
+// Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearPelicula');
 Route::get('/administrador', [AdminController::class, 'adminIndex'])->name('admin.index');
-
 Route::get('/administrador/peliculas', [AdminController::class, 'adminPeliculas'])->name('admin.peliculas');
+Route::post('/administrador/peliculas/guardar', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
 Route::get('/administrador/peliculas/obtener',[AdminController::class, 'obtenerPeliculas'])->name('admin.mostrarpeliculas');
-Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
+Route::delete('/administrador/peliculas/eliminar/{titulo}',[AdminController::class, 'eliminarPelicula'])->name('admin.eliminarpelicula');
+// Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
 
 
 Route::get('/administrador/salas', [AdminController::class, 'adminSalas'])->name('admin.salas');
+Route::post('/administrador/salas/tiposalas/guardar', [AdminController::class, 'guardarTipoSalas'])->name('admin.tiposalasguardar');
+Route::get('/administrador/salas/tiposalas/modificar', [AdminController::class, 'adminSalasModificar'])->name('admin.salasmodificar');
+Route::put('/administrador/salas/tiposalas/modificar/{codigoTipoSala}', [AdminController::class, 'editarTipoSalas'])->name('admin.tiposalaseditar');
+
+
+
 Route::get('/administrador/eventos', [AdminController::class, 'adminEventos'])->name('admin.eventos');
 Route::get('/administrador/clientes', [AdminController::class, 'adminClientes'])->name('admin.clientes');
 
-Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
+// Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
 

@@ -57,22 +57,52 @@
         {{-- <-----------------------Divs para las opciones----------------------> --}}
     
         <div id="container-peliculas" >
-            <div id="agregar-peliculas">
-                <h2>Agregar Pelicula</h2>
-                <div class="inputs-container">
-                    <form action='{{route('admin.guardarpelicula')}}' method="POST" class="inputs-position" onsubmit="obtenerPeliculas()">
+            <div id="mostrar-peliculas">
+                <h2>Peliculas Disponibles</h2>
+                <table id="table-container">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Título</th>
+                            <th>Duración</th>
+                            <th>Disponible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($peliculas as $pelicula)
+                        <tr>
+                            <td>
+                                {{$pelicula['codigoPelicula']}}
+                            </td>
+                            <td>
+                                {{$pelicula['titulo']}}
+                            </td>
+                            <td>
+                                {{$pelicula['duracion']}}
+                            </td>
+                            <td>
+                                {{$pelicula['disponible']}}
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div>
+                    <span>Eliminar Una Pelicula</span>
+                    <form action='{{route('admin.eliminarpelicula', '__titulo__' )}}' method="POST" class="inputs-position" id="eliminarPeliculaForm">
                         @csrf
+                        @method('DELETE')
                         <input type="text" id="titulo" name="titulo" class="custom-input" placeholder="Titulo">
-                        <input type="text" id="duracion" name="duracion" class="custom-input" placeholder="HH:MM:SS">
                         <div id="button-container"class="form-group">
-                            <a><button type="submit" class="btn btn-secondary">GuardarPelicula</button></a>
-                            <a><button type="button"  class="btn btn-danger" onclick="borrarCampos()">Cancelar</button></a>
-                            <a><button type="button"  class="btn btn-dark" onclick="direccionarPelis()">Mostrar Peliculas</button></a>
+                            <a><button type="submit" class="btn btn-danger">Eliminar Pelicula</button></a>
+                            <a><button type="button"  class="btn btn-secondary" onclick="borrarCampos()">Cancelar</button></a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
+        
 
     </div>
 

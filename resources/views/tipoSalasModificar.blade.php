@@ -55,44 +55,31 @@
                 </div>
             </div>
             {{-- <-----------------------Divs para las opciones----------------------> --}}
-        
             <div id="container-peliculas">
-                <div id="agregar-tiposala">
-                    <h2>Crear Tipo de Sala</h2>
-                    <div class="inputs-container">
-                        <form action='{{route('admin.tiposalasguardar')}}' method="POST" class="inputs-position">
-                            @csrf
-                            <input type="text" id="descripcion" name="descripcion" class="custom-input" placeholder="normal/vip">
-                            <input type="text" id="precio" name="precio" class="custom-input" placeholder="0.00">
-                            <div class="form-group">
-                                <a><button type="submit" class="btn btn-success">Crear Tipo Sala</button></a>
-                                <a><button type="button"  class="btn btn-warning" onclick="borrarCampos()">Cancelar</button></a>
-                                
-                            </div>
-                        </form>
-                        <div><a href='{{route('admin.salasmodificar')}}'><button type="submit" class="btn btn-success">Editar Tipo Sala</button></a> </div>
-                    </div>
-                </div>
-                {{-- <div>
+                <div>
                     <h2>Editar Una Sala</h2>
                     <div class="inputs-container">
-                            <form action='{{route('admin.tiposalaseditar','__codigoTipoSala__')}}' method="POST" class="inputs-position" id="obtenerCodigoPelicula">
+                            <form action='{{route('admin.tiposalaseditar', '__codigotiposala__')}}' method="POST" class="inputs-position" id="obtenerCodigoSalaForm">
                                 @csrf
-                                <input type="text" id="codigoTipoSala" name="codigoTipoSala" class="custom-input" placeholder="codigo de sala">
+                                @method('PUT')
+                                <input type="text" id="codigotiposala" name="codigotiposala" class="custom-input" placeholder="Codigo">
+                                <input type="text" id="descripcion" name="descripcion" class="custom-input" placeholder="normal/vip">
+                                <input type="text" id="precio" name="precio" class="custom-input" placeholder="0.00">
                                 <div class="form-group">
-                                    <a><button type="submit" class="btn btn-success">Editar Tipo Sala</button></a>
+                                    <a><button type="submit" class="btn btn-success">Actualizar</button></a>
                                     <a><button type="button"  class="btn btn-warning" onclick="borrarCampos()">Cancelar</button></a>
                                 </div>
                         </form>
                         
                     </div>
-                </div> --}}
+                    
+                </div>
             </div>
     
         </div>
     
     
-        <script src="{{ asset('js/admin.js') }}"></script>
+        <script src="{{ asset('js/tiposala.js') }}"></script>
     
     </body>
 </html>
