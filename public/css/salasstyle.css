@@ -1,0 +1,89 @@
+body{
+    background-color: #151412;
+}
+
+#principal-container {
+    /* display: flex;
+    flex-direction: row; */
+    display: grid;
+    grid-template-columns: 20% 78%;
+    height: 90vh; 
+    margin: 40px;
+    column-gap: 2%;
+}
+
+
+#container-settings-options{
+    background-color: var(--color-fondo-secundario);
+    color:var(--color-texto);
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-rows: 5% 75% 10%;
+    row-gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    justify-items: center;
+}
+
+#container-peliculas{
+    background-color: var(--color-fondo-secundario);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+#header-options{
+    display: flex;
+    justify-content: center;
+    color: var(--color-texto);
+    font-size: 20px;
+}
+
+
+a {
+    text-decoration: none; 
+    color: inherit;
+
+}
+
+a:hover{
+    text-decoration: none; /* Quita el subrayado */
+    color:rgba(255, 208, 0, 0.321);
+}
+
+
+#body-options{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+}
+
+#footer-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+}
+
+#peliculas-option, #salas-option, #eventos-option, #clientes-option{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    align-items: center;
+    padding: 10px 45px;
+    border-radius: 20px;
+}
+
+#peliculas-option{
+    background-color: rgba(106, 106, 106, 0.48);
+    transition: background-color 0.3s ease;
+}
+
+.elementsOption section:hover {
+    /* padding: 10px; */
+    background-color: rgba(106, 106, 106, 0.48);
+    transition: background-color 0.3s ease;
+}
