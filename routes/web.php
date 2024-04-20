@@ -17,6 +17,16 @@ use App\Http\Controllers\LandingPageController;
 
 Route::get('/',[LandingPageController::class,'home'])->name('landingpage.home');
 Route::get('/administrador', [AdminController::class, 'adminIndex'])->name('admin.index');
+
+Route::get('/administrador/peliculas', [AdminController::class, 'adminPeliculas'])->name('admin.peliculas');
+Route::get('/administrador/peliculas/obtener',[AdminController::class, 'obtenerPeliculas'])->name('admin.mostrarpeliculas');
+Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
+
+
+Route::get('/administrador/salas', [AdminController::class, 'adminSalas'])->name('admin.salas');
+Route::get('/administrador/eventos', [AdminController::class, 'adminEventos'])->name('admin.eventos');
+Route::get('/administrador/clientes', [AdminController::class, 'adminClientes'])->name('admin.clientes');
 Route::get('/registrarse', [LandingPageController::class, '...'])->name('...');
 // Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearpelicula');
-// Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
+Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
+
