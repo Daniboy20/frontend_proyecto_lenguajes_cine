@@ -84,7 +84,7 @@ a:hover{
     border-radius: 20px;
 }
 
-#peliculas-option{
+#eventos-option{
     background-color: rgba(79, 79, 79, 0.48);
     transition: background-color 0.3s ease;
 }

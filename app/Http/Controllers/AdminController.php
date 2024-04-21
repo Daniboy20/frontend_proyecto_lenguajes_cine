@@ -273,6 +273,21 @@ class AdminController extends Controller
     }
 
     public function adminEventosMostrar(){
-
+        $client = new Client();
+        try {
+            $response = $client->request('GET', 'http://localhost:8080/api/evento/obtener');
+    
+            if($response->getStatusCode() == 200){
+                // Si da un 200 ok se almacena la respuesta en n¿una varuable
+                $contenido = $response->getBody()->getContents();
+                // convierte el JSON a un array asociativo
+                $eventos = json_decode($contenido, true);
+                return view('mostrarEventos' , compact('eventos'));
+            }
+    
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return response('Error: ' . $e->getMessage(), 500);
+        }
     }
 }
