@@ -25,6 +25,7 @@ Route::post('cliente/obtener',[ClienteController::class,'obtenerCliente'])->name
 
 Route::get('/cliente/editar',[ClienteController::class,'editarCliente'])->name('cliente.editarCliente');
 Route::put('/cliente/actualizar',[ClienteController::class,'actualizarCliente'])->name('cliente.actualizarCliente');
+Route::get('cliente/cerrarsesion',[ClienteController::class,'cerrarSesion'])->name('cliente.cerrarSesionCliente');
 
 // Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearPelicula');
 Route::get('/administrador', [AdminController::class, 'adminIndex'])->name('admin.index');

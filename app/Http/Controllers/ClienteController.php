@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+Use Carbon\Carbon;
 
 class ClienteController extends Controller
 {
@@ -26,7 +27,7 @@ class ClienteController extends Controller
     public function guardarCliente(Request $request)
     {
         $nombreCompleto = $request->input('nombreCompleto');
-        $fechaNacimiento = $request->input('fechaNaciemiento');
+        $fechaNacimiento = $request->input('fechaNacimiento');
         $telefono = $request->input('telefono');
         $correo = $request->input('correo');
         $contrasenia = $request->input('contrasenia');
@@ -37,7 +38,7 @@ class ClienteController extends Controller
                     'Content-Type' => 'application/json',
                     'json'=>[
                         'nombreCompleto' => $nombreCompleto,
-                        'fechaNacimiento' => $fechaNacimiento,
+                        'fechaNacimiento' =>  $fechaNacimiento,
                         'telefono' => $telefono,
                         'correo' => $correo,
                         'contrasenia' => $contrasenia,
@@ -52,6 +53,7 @@ class ClienteController extends Controller
         } catch (\Exception $e) {
             return response('Error' .$e->getMessage(), 500);
         }
+        
     }
 
     public function obtenerCliente(Request $request)
@@ -113,5 +115,10 @@ class ClienteController extends Controller
 
     }
 
+    public function cerrarSesion()
+    {
+        session()->forget('data');
+        return view('landingpage');
+    }
 
 }

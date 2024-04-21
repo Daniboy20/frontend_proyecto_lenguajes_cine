@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/abd3dd1e89.js" crossorigin="anonymous"></script>
     </head>
     <body class="p-3 mb-2 bg-dark text-white">
             <div class="cinemaplusContainer">
@@ -32,11 +33,31 @@
                         </form>
                     </div>
                 </div>
+                
+                <div class="rightHeaderContainer">
                     <div class="loginContainer">
-                    <h1 class="login">ADMINISTRAR</h1>
-                        <h1 class="login"> <a href="{{route('cliente.crearCliente')}}">REGISTRARSE </a> </h1>
+                            @if(session('data'))
+                            <div id="menu-btn">&#9776;</div>
+                                <!-- Menu Hamburguesa -->
+                                <div id="sidebar">
+                                <span id="close-btn">&#10006;</span>
+                                    <nav>
+                                        <ul>
+                                            <li><a href="{{route('cliente.editarCliente')}}">Editar Perfil</a></li>
+                                            <li><a href="#">Actividad</a></li>
+                                            <li><a href="{{route('admin.index')}}">Administrar</a></li>
+                                            <li><a href="{{route('cliente.cerrarSesionCliente')}}">Cerrar Sesión</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            @else
+                                <h1 class="login"> <a href="{{route('admin.index')}}">ADMINISTRAR</h1>
+                                <h1 class="login"> <a href="{{route('cliente.crearCliente')}}">REGISTRARSE </a> </h1>
+                            @endif
                     </div>
                 </div>
+            </div>
+            
             </div>
 
 
@@ -110,6 +131,6 @@
 
 
 
-
+        <script src="{{ asset('js/hamburguer.js') }}"></script>
     </body>
 </html>

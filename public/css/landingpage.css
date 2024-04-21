@@ -84,8 +84,7 @@ input.search
     padding: 0.5em;
     align-items: center;
     border-radius: 1em;
-    border-style: solid;
-    border-color: gray;
+    border: none;
     font-family: 'Inter';
     @media screen and (max-width: 64em) {
         width: 20em;
@@ -100,8 +99,17 @@ input.search:focus
 {
     background-color: rgba(77, 77, 77, 0.54);
     box-shadow: 0 0 6px rgba(245, 40, 37, 0.559);
+    outline: none;
+
 }
 
+input.search::placeholder {
+    color: rgba(211, 207, 207, 0.64);
+}
+
+input.search:focus::placeholder {
+    color: rgba(211, 207, 207, 0.64);
+}
 
 button.btn
 {
@@ -249,4 +257,56 @@ img.imageFunction
 div.descriptionContainer
 {
     margin-top: 1em;
+}
+
+/*------------------------------------ Hamburguer Menu -----------------------------------------*/
+
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    background-color: #333;
+    color: #fff;
+    transition: right 0.3s;
+    padding: 10px;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+#sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu-btn {
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 0.5em;
+    
+}
+
+#close-btn {
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    text-align: right;
+    display: block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.fa-bars
+{
+    font-size: 60px;
 }
