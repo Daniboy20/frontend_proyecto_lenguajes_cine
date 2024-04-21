@@ -1,0 +1,130 @@
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+div.showMovieContainer
+{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    width: 40%;
+    padding: 2em;
+
+
+    @media screen and (max-width: 30em) {
+        width: 100%;
+    }
+
+
+    font-family: 'Inter';
+    margin-top: 3em;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+}
+
+
+div.movieContainer
+{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10em;
+    margin-right: 10em;
+
+    @media screen and (max-width: 64em) {
+        margin: 0em;
+    }
+
+    @media screen and (max-width: 30em) {
+        flex-wrap: wrap;
+        margin: 0em;
+    }
+}
+
+div.lines
+{
+    margin-top: 1.5em;
+    border-bottom: 1px solid rgba(255, 4, 4, 0.801);
+
+    @media screen and (max-width: 64em) {
+        width: 20em;
+    }
+
+    @media screen and (max-width: 30em) {
+        width: 18em;
+    }
+}
+
+#line1
+{
+    width: 65em;
+
+    @media screen and (max-width: 64em) {
+        width: 20em;
+    }
+
+    @media screen and (max-width: 30em) {
+        width: 18em;
+    }
+}
+
+div.functionContainer
+{
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+
+    @media screen and (max-width: 30em) {
+        grid-template-columns: repeat(1,1fr);
+        margin-left: 21vw;
+        margin-bottom: 2em;
+    }
+}
+
+div.showMovie
+{
+    width: 12em;
+    height: auto;
+
+}
+
+div.imageFunctionContainer
+{
+    margin-top: 2em;
+    width: 12em;
+    height: auto;
+
+}
+
+img.imageFunction
+{
+    max-width: inherit;
+    max-height: inherit;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+}
+
+div.descriptionContainer
+{
+    margin-top: 1em;
+}
+
+a.image
+{
+    margin-top: 2em;
+    width: 12em;
+    height: auto;
+}

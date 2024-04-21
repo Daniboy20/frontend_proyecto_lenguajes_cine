@@ -62,12 +62,17 @@
                     <table id="table-container">
                         <thead>
                             <tr>
-                                <th>Nombre Completo</th>
-                                <th>Cliente Frencuente</th>
-                                <th>Fecha de Nacimiento</th>
-                                <th>Correo</th>
-                                <th>Telefono</th>
-                                <th>Mas Detalles</th>
+                                <th>#</th>
+                                <th>Titulo</th>
+                                <th>Tipo Sala</th>
+                                <th>Precio</th>
+                                <th>Disponibilidad</th>
+                                <th>Hora Inicio</th>
+                                <th>Fecha Evento</th>
+                                <th>Idioma</th>
+                                <th>Formato</th>
+                                <th>Editar Registro</th>
+                                <th>Eliminar Registro</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,21 +85,42 @@
                                     {{$evento['pelicula']['titulo']}}
                                 </td>
                                 <td>
-                                    {{$evento['sala']['titulo']}}
-                                </td>
-                                <td>
                                     {{$evento['sala']['tipoSala']['descripcion']}}
                                 </td>
                                 <td>
                                     {{$evento['sala']['tipoSala']['precio']}}
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.clientesdetalles', $cliente['codigoCliente']) }}" class="btn btn-secondary">Mostrar Detalle</a>
+                                    {{$evento['disponible']}}
+                                </td>
+                                <td>
+                                    {{$evento['horaInicio']}}
+                                </td>
+                                <td>
+                                    {{$evento['fechaEvento']}}
+                                </td>
+                                <td>
+                                    {{$evento['idioma']}}
+                                </td>
+                                <td>
+                                    {{$evento['formato']}}
+                                </td>
+                                <td>
+                                    {{-- http://localhost:8080/api/evento/obtenerPorNombre?titulo=Depredador --}}
+                                    <a href="{{ route('admin.editarevento', ['titulo'=>$evento['pelicula']['titulo']] ) }}" class="btn btn-warning">Editar <i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a>
+                                    {{-- {{ route('admin.clientesdetalles', $cliente['codigoCliente']) }} --}}
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.eliminarevento', ['codigoEvento'=>$evento['codigoEvento']] ) }}" class="btn btn-danger">Eliminar <i class="fa-regular fa-trash-can" style="color: #ffffff;"></i></a>
+                                    {{-- {{ route('admin.clientesdetalles', $cliente['codigoCliente']) }} --}}
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <a href="{{route('admin.eventos')}}" class="btn btn-secondary">Regresar</a>
                 </div>
             </div>
     

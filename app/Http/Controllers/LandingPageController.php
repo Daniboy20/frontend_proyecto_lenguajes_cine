@@ -50,7 +50,20 @@ class LandingPageController extends Controller
     public function verPeliculaInfo($evento)
     {
         
-        
+        $client = new Client();
+        try {
+            $response = $client->request('GET','http://localhost:8080/api/evento/obtenerPorNombre?titulo='.$evento);
+    
+            if($response->getStatusCode() == 200){
+                // Si la solicitud es exitosa, obtén los datos del evento
+                $evento = json_decode($response->getBody()->getContents(), true);
+                return view('verPeliculaInfo', compact('evento'));
+            }
+    
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return response('Error: ' . $e->getMessage(), 500);
+        }
 
 
     }

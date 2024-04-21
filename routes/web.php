@@ -17,7 +17,7 @@ use App\Http\Controllers\LandingPageController;
 
 
 Route::get('/',[LandingPageController::class,'home'])->name('landingpage.home');
-Route::get('/verpelicula/{titulo}',[LandingPageController::class,'verPeliculaInfo'])->name('landingpage.ver');
+Route::get('/verpelicula/{evento}',[LandingPageController::class,'verPeliculaInfo'])->name('landingpage.ver');
 
 Route::get('/cliente/crear',[ClienteController::class,'crearCliente'])->name('cliente.crearCliente');
 Route::post('/cliente/guardar',[ClienteController::class,'guardarCliente'])->name('cliente.guardarCliente');
@@ -50,6 +50,10 @@ Route::delete('/administrador/salas/eliminar',[AdminController::class, 'eliminar
 Route::get('/administrador/eventos', [AdminController::class, 'adminEventos'])->name('admin.eventos');
 Route::post('/administrador/eventos/crear', [AdminController::class, 'adminEventosCrear'])->name('admin.eventoscrear');
 Route::get('/administrador/eventos/mostrar', [AdminController::class, 'adminEventosMostrar'])->name('admin.mostrareventos');
+Route::get('/administrador/eventos/editar/{titulo}', [AdminController::class, 'adminEditarUnEvento'])->name('admin.editarevento');
+Route::put('/administrador/eventos/actualizar/{codigoEvento}', [AdminController::class, 'adminActualizarUnEvento'])->name('admin.actualizarevento');
+Route::get('/administrador/eventos/eliminar/{codigoEvento}', [AdminController::class, 'adminEliminarUnEvento'])->name('admin.eliminarevento');
+
 
 
 

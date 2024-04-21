@@ -263,7 +263,7 @@ class AdminController extends Controller
                 ]);
 
                 if($response->getStatusCode()==200){
-                    return view('administradorsalas');
+                    return view('administradoreventos');
                     // return redirect()->route('landingpage');
                 }
 
@@ -290,4 +290,113 @@ class AdminController extends Controller
             return response('Error: ' . $e->getMessage(), 500);
         }
     }
+
+    public function adminEditarUnEvento($titulo){
+        $client = new Client();
+        try {
+            $response = $client->request('GET','http://localhost:8080/api/evento/obtenerPorNombre?titulo='.$titulo);
+    
+            if($response->getStatusCode() == 200){
+                // Si la solicitud es exitosa, obtén los datos del evento
+                $evento = json_decode($response->getBody()->getContents(), true);
+                return view('detalleEvento', compact('evento'));
+            }
+    
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return response('Error: ' . $e->getMessage(), 500);
+        }
+    }
+    
+    public function adminActualizarUnEvento($codigoEvento, Request $request){
+        $codigoPelicula = $request->input('codigopelicula');
+        $codigoSala = $request->input('codigosala');
+        $horaInicio = $request->input('horainicio');
+        $fechaEvento = $request->input('fechaEvento');
+        $idioma = $request->input('idioma');
+        $formato = $request->input('formato');
+        $client = new Client();
+
+        try {
+            $response = $client->put('http://localhost:8080/api/evento/editar',
+                [   
+                    'query'=>[
+                        'codigoEvento'=>$codigoEvento
+                    ],
+                    'Content-Type' => 'application/json',
+                    'json'=>[
+                        'codigoPelicula' => $codigoPelicula,
+                        'codigoSala' => $codigoSala,
+                        'horaInicio' => $horaInicio,
+                        'fechaEvento' => $fechaEvento,
+                        'idioma' => $idioma,
+                        'formato' => $formato
+                    ],
+                ]);
+
+                if($response->getStatusCode()==200){
+                    return view('administradoreventos');
+                    // return redirect()->route('landingpage');
+                }
+
+        } catch (\Exception $e) {
+            return response('Error' .$e->getMessage(), 500);
+        }
+    }
+
+    // $nombreCompleto = $request->input('nombreCompleto');
+    // $fechaNacimiento = $request->input('fechaNaciemiento');
+    // $telefono = $request->input('telefono');
+    // $correo = $request->input('correo');
+    // $contrasenia = $request->input('contrasenia');
+    // $client = new Client();
+
+    // try {
+    //     $response = $client->put('http://localhost:8080/api/cliente/editar/'. session('data')['codigoCliente'],
+    //         [
+    //             'Content-Type' => 'application/json',
+    //             'json'=>[
+    //                 'nombreCompleto' => $nombreCompleto,
+    //                 'fechaNacimiento' => $fechaNacimiento,
+    //                 'telefono' => $telefono,
+    //                 'correo' => $correo,
+    //                 'contrasenia' => $contrasenia,
+    //             ],
+    //         ]);
+
+    //         if($response->getStatusCode()==200){
+    //             $data = json_decode($response->getBody()->getContents(), true);
+    //             session(['data' => $data]);
+    //             return redirect()->route('landingpage.home');
+    //             //return view('landingpage');
+    //             // return redirect()->route('landingpage');
+    //         }
+
+    //     }catch (\Exception $e) {
+    //         return response('Error' .$e->getMessage(), 500);
+    //     }
+
+    public function adminEliminarUnEvento($codigoEvento){
+        // $codigoEvento = $request->input('codigosala');
+        $client = new Client();
+        try {
+            $response = $client->delete('http://localhost:8080/api/evento/eliminarPorId',
+            [
+                'query'=>[
+                    'codigoEvento'=>$codigoEvento
+                ]
+            ]);
+            
+            if($response->getStatusCode() == 200){
+                // Si la solicitud es exitosa, devuelve una respuesta o realiza otras acciones necesarias
+                return view('administradoreventos');
+            }
+    
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return response('Error: ' . $e->getMessage(), 500);
+        }
+    }
+
+    // http://localhost:8080/api/evento/eliminarPorId?codigoEvento=5
 }
