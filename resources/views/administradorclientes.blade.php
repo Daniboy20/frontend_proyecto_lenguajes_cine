@@ -64,6 +64,9 @@
                             <tr>
                                 <th>Nombre Completo</th>
                                 <th>Cliente Frencuente</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
                                 <th>Mas Detalles</th>
                             </tr>
                         </thead>
@@ -77,7 +80,16 @@
                                     {{$cliente['clienteFrecuente']}}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-secondary">Mostrar Detalle</button>
+                                    {{$cliente['fechaNacimiento']}}
+                                </td>
+                                <td>
+                                    {{$cliente['correo']}}
+                                </td>
+                                <td>
+                                    {{$cliente['telefono']}}
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.clientesdetalles', $cliente['codigoCliente']) }}" class="btn btn-secondary">Mostrar Detalle</a>
                                 </td>
                             </tr>
                             @endforeach
