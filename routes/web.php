@@ -37,6 +37,8 @@ Route::post('/administrador/salas/tiposalas/guardar', [AdminController::class, '
 Route::get('/administrador/salas/tiposalas/modificar', [AdminController::class, 'adminSalasModificar'])->name('admin.salasmodificar');
 Route::put('/administrador/salas/tiposalas/modificar/{codigoTipoSala}', [AdminController::class, 'editarTipoSalas'])->name('admin.tiposalaseditar');
 
+Route::post('/administrador/salas/crear',[AdminController::class, 'crearSala'])->name('admin.crearsala');
+
 
 
 Route::get('/administrador/eventos', [AdminController::class, 'adminEventos'])->name('admin.eventos');

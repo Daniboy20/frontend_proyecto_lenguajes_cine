@@ -60,7 +60,7 @@
             <div id="agregar-peliculas">
                 <h2>Agregar Pelicula</h2>
                 <div class="inputs-container">
-                    <form action='{{route('admin.guardarpelicula')}}' method="POST" class="inputs-position" onsubmit="obtenerPeliculas()">
+                    <form action='{{route('admin.guardarpelicula' )}}' method="POST" class="inputs-position" onsubmit="obtenerPeliculas()">
                         @csrf
                         <input type="text" id="titulo" name="titulo" class="custom-input" placeholder="Titulo">
                         <input type="text" id="duracion" name="duracion" class="custom-input" placeholder="HH:MM:SS">

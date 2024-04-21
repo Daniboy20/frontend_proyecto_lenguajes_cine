@@ -55,8 +55,8 @@
                 </div>
             </div>
             {{-- <-----------------------Divs para las opciones----------------------> --}}
-            <div id="container-peliculas">
-                <div>
+            <div id="container-salas" class="container">
+                <div id="editar-sala" class="estilo-fondo">
                     <h2>Editar Una Sala</h2>
                     <div class="inputs-container">
                             <form action='{{route('admin.tiposalaseditar', '__codigotiposala__')}}' method="POST" class="inputs-position" id="obtenerCodigoSalaForm">
