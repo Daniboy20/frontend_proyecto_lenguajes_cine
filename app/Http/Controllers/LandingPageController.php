@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\DB;
 
 class LandingPageController extends Controller
 {
@@ -24,13 +25,16 @@ class LandingPageController extends Controller
                 foreach ($eventos as $evento) {
                     // Verificar la disponibilidad de cada evento
 
-                    switch ($evento['disponible'])
+
+                    if($evento['disponible'] == 1)
                     {
-                        case 2:
-                            $eventosNoDisponibles[] = $evento;
-                        
-                        case 1:
-                            $eventosDisponibles[] = $evento;
+                        //carrousel
+                    }else if($evento['disponible'] == 2)
+                    {
+                        $eventosDisponibles[] = $evento;
+                    } else if($evento['disponible'] == 3)
+                    {
+                        $eventosNoDisponibles[] = $evento;
                     }
                 }
                 return view('landingpage' , compact('eventosDisponibles', 'eventosNoDisponibles'));
@@ -43,9 +47,11 @@ class LandingPageController extends Controller
         return view('landingpage');
     }  
 
-    public function verPeliculaInfo()
+    public function verPeliculaInfo($evento)
     {
         
         
+
+
     }
 }

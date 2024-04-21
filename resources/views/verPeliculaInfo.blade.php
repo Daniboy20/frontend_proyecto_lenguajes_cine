@@ -21,7 +21,7 @@
 
                                 <div class="functionContainer">
 
-                                    @foreach($eventosDisponibles as $evento)
+                                    
                                 <!-- Hacer un for Each, Para cada Pelicula -->
                                      <div class="showMovie">
                                          <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
@@ -29,7 +29,7 @@
                                                 <h5>{{$evento['pelicula']['titulo']}}</h5>
                                                 <h5>{{$evento['fechaEvento']}} | {{$evento['horaInicio']}}</h5>
                                             </div>
-                                    @endforeach
+                                
                                 </div>  
                             </div>       
                         </div>

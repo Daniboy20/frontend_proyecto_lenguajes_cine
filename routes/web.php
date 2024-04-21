@@ -17,7 +17,7 @@ use App\Http\Controllers\LandingPageController;
 
 
 Route::get('/',[LandingPageController::class,'home'])->name('landingpage.home');
-Route::get('/verpelicula',[LandingPageController::class,'verPeliculaInfo'])->name('landingpage.ver');
+Route::get('/verpelicula/{titulo}',[LandingPageController::class,'verPeliculaInfo'])->name('landingpage.ver');
 
 Route::get('/cliente/crear',[ClienteController::class,'crearCliente'])->name('cliente.crearCliente');
 Route::post('/cliente/guardar',[ClienteController::class,'guardarCliente'])->name('cliente.guardarCliente');

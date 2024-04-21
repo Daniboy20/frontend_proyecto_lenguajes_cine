@@ -83,7 +83,7 @@
                             <!-- Hacer un for Each, Para cada Pelicula -->
                                 <div class="showMovie">
                                     <div class="imageFunctionContainer">
-                                    <a class="image" href="{{route('landingpage.ver')}}">
+                                    <a class="image" href="{{route('landingpage.ver',['titulo' =>$evento['pelicula']['titulo']])}}">
                                     <img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt="">
                                     </a>    
                                             
