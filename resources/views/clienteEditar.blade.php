@@ -17,15 +17,15 @@
             <div id="agregar-peliculas">
                 <h2>Editar Informacion</h2>
                 <div class="inputs-container">
-                    <form action='{{route('cliente.actualizarCliente')}}' method="POST" class="inputs-position" onsubmit="obtenerPeliculas()">
+                    <form action='{{route('cliente.actualizarCliente')}}' method="POST" class="inputs-position">
                         @csrf
                         @Method('PUT')
-                        <input type="text" id="nombreCompleto" name="nombreCompleto" class="custom-input" placeholder="Nombre Completo">
-                        <input type="text" id="clienteFrecuente" name="clienteFrecuente" class="custom-input" placeholder="" readonly>
-                        <input type="text" id="fechaNacimiento" name="fechaNacimiento" class="custom-input" placeholder="YYYY/MM/DD" >
-                        <input type="text" id="telefono" name="telefono" class="custom-input" placeholder="00000">
-                        <input type="text" id="correo" name="correo" class="custom-input" placeholder="Correo Electronico">
-                        <input type="text" id="contrasenia" name="contrasenia" class="custom-input" placeholder="Contraseña">
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" class="custom-input" placeholder="Nombre Completo" value="{{ session('data')['nombreCompleto'] ?? '' }}"">
+                        <input type="text" id="clienteFrecuente" name="clienteFrecuente" class="custom-input" placeholder="" readonly value="{{ session('data')['clienteFrecuente'] ?? '' }}">
+                        <input type="text" id="fechaNacimiento" name="fechaNacimiento" class="custom-input" placeholder="YYYY/MM/DD" value="{{ session('data')['fechaNacimientp'] ?? '' }}" >
+                        <input type="text" id="telefono" name="telefono" class="custom-input" placeholder="00000" value="{{ session('data')['telefono'] ?? '' }}">
+                        <input type="text" id="correo" name="correo" class="custom-input" placeholder="Correo Electronico" value="{{ session('data')['correo'] ?? '' }}">
+                        <input type="text" id="contrasenia" name="contrasenia" class="custom-input" placeholder="Contraseña" value="{{ session('data')['contrasenia'] ?? '' }}">
 
                         <div id="button-container"class="form-group">
                             <a  href="{{ route('landingpage.home') }}" class="btn btn-warning">Cancelar</a>

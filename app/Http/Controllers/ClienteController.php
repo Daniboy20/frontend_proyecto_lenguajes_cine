@@ -70,9 +70,7 @@ class ClienteController extends Controller
                     if($response->getStatusCode()==200){
                         
                         $data = json_decode($response->getBody()->getContents(), true);
-                      //   echo($data['correo']);
-                      //  echo($data['contrasenia']);
-                        // return redirect()->route('landingpage');
+                        session(['data' => $data]);
                         return view('landingpage');
                     }
         }catch (\Exception $e) {
@@ -82,7 +80,37 @@ class ClienteController extends Controller
 
     public function actualizarCliente(Request $request)
     {
-        return view('landingpage');
+        $nombreCompleto = $request->input('nombreCompleto');
+        $fechaNacimiento = $request->input('fechaNaciemiento');
+        $telefono = $request->input('telefono');
+        $correo = $request->input('correo');
+        $contrasenia = $request->input('contrasenia');
+        $client = new Client();
+
+        try {
+            $response = $client->put('http://localhost:8080/api/cliente/editar/'. session('data')['codigoCliente'],
+                [
+                    'Content-Type' => 'application/json',
+                    'json'=>[
+                        'nombreCompleto' => $nombreCompleto,
+                        'fechaNacimiento' => $fechaNacimiento,
+                        'telefono' => $telefono,
+                        'correo' => $correo,
+                        'contrasenia' => $contrasenia,
+                    ],
+                ]);
+
+                if($response->getStatusCode()==200){
+                    $data = json_decode($response->getBody()->getContents(), true);
+                    session(['data' => $data]);
+                    return view('landingpage');
+                    // return redirect()->route('landingpage');
+                }
+
+            }catch (\Exception $e) {
+                return response('Error' .$e->getMessage(), 500);
+            }
+
     }
 
 
