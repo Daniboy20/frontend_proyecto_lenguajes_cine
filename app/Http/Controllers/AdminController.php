@@ -234,8 +234,8 @@ class AdminController extends Controller
     }
     
     public function adminEventosCrear(Request $request){
-        $codigoPelicula = $request->input('codigopelicula');
-        $codigoSala= $request->input('codigosala');
+        $codigopelicula = $request->input('codigopelicula');
+        $codigosala= $request->input('codigosala');
         $horaInicio= $request->input('horainicio');
         $fechaEvento= $request->input('fechaevento');
         $idioma= $request->input('idioma');
@@ -244,13 +244,17 @@ class AdminController extends Controller
         $client = new Client();
         try {
             // Realiza una solicitud POST a una URL específic
-
-            $response = $client->request('POST', 'http://localhost:8080/api/evento/crear?codigopelicula='.$codigoPelicula.'&codigosala='.$codigoSala,
+            // http://localhost:8080/api/evento/crear?codigopelicula=2&codigosala=3
+            $response = $client->request('POST', 'http://localhost:8080/api/evento/crear',
                 [   
+                    'query'=>[
+                        'codigopelicula'=>$codigopelicula,
+                        'codigosala'=>$codigosala
+                    ],
                     'Content-Type' => 'application/json',
                     'json'=>[
-                        'codigoPelicula' => $codigoPelicula,
-                        'codigoSala' => $codigoSala,
+                        'codigoPelicula' => $codigopelicula,
+                        'codigoSala' => $codigosala,
                         'horaInicio' => $horaInicio,
                         'fechaEvento' => $fechaEvento,
                         'idioma' => $idioma,

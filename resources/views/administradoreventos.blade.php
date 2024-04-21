@@ -62,10 +62,10 @@
                 <div class="inputs-container">
                     <form action='{{route('admin.eventoscrear' )}}' method="POST" class="inputs-position" onsubmit="obtenerPeliculas()">
                         @csrf
-                        <input type="text" id="condigopelicula" name="condigopelicula" class="custom-input" placeholder="Codigo Pelicula">
+                        <input type="text" id="codigopelicula" name="codigopelicula" class="custom-input" placeholder="Codigo Pelicula">
                         <input type="text" id="codigosala" name="codigosala" class="custom-input" placeholder="Codigo Sala">
                         <input type="text" id="horainicio" name="horainicio" class="custom-input" placeholder="HH:MM:SS">
-                        <input type="text" id="fechaevento" name="fechaevento" placeholder="YY-MM-DD" pattern="\d{2}-\d{2}-\d{2}">
+                        <input type="date" id="fechaevento" name="fechaevento" placeholder="YY-MM-DD">
                         <input type="text" id="idioma" name="idioma" class="custom-input" placeholder="Idioma">
                         <input type="text" id="formato" name="formato" class="custom-input" placeholder="Formato">
                         <div id="button-container"class="form-group">
