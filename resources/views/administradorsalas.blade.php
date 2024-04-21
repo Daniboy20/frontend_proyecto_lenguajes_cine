@@ -86,6 +86,19 @@
                             </form>
                             <div><a href='{{route('admin.salasmodificar')}}'><button type="submit" class="btn btn-success">Editar Tipo Sala</button></a> </div>
                         </div>
+
+                        <div>
+                            <span>Eliminar Una Pelicula</span>
+                            <form action='{{route('admin.eliminarsala')}}' method="POST" class="inputs-position" id="eliminarPeliculaForm">
+                                @csrf
+                                @method('DELETE')
+                                <input type="text" id="codigosala" name="codigosala" class="custom-input" placeholder="Codigo Sala">
+                                <div id="button-container"class="form-group">
+                                    <a><button type="submit" class="btn btn-danger">Eliminar Sala</button></a>
+                                    <a><button type="button"  class="btn btn-secondary" onclick="borrarCampos()">Cancelar</button></a>
+                                </div>
+                            </form>
+                        </div>
                 {{-- <div>
                     <h2>Editar Una Sala</h2>
                     <div class="inputs-container">

@@ -38,6 +38,7 @@ Route::get('/administrador/salas/tiposalas/modificar', [AdminController::class, 
 Route::put('/administrador/salas/tiposalas/modificar/{codigoTipoSala}', [AdminController::class, 'editarTipoSalas'])->name('admin.tiposalaseditar');
 
 Route::post('/administrador/salas/crear',[AdminController::class, 'crearSala'])->name('admin.crearsala');
+Route::delete('/administrador/salas/eliminar',[AdminController::class, 'eliminarSala'])->name('admin.eliminarsala');
 
 
 
