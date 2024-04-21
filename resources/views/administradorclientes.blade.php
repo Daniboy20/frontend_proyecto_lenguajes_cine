@@ -56,25 +56,45 @@
             </div>
             {{-- <-----------------------Divs para las opciones----------------------> --}}
         
-            <div id="container-peliculas">
-                <div id="agregar-tiposala">
-                    <h2>Crear Tipo de Sala</h2>
-                    <div class="inputs-container">
-                        <form action='{{route('admin.tiposalasguardar')}}' method="POST" class="inputs-position">
-                            @csrf
-                            <input type="text" id="descripcion" name="descripcion" class="custom-input" placeholder="normal/vip">
-                            <input type="text" id="precio" name="precio" class="custom-input" placeholder="0.00">
-                            <div class="form-group">
-                                <a><button type="submit" class="btn btn-success">Crear Tipo Sala</button></a>
-                                <a><button type="submit" class="btn btn-success">Editar Tipo Sala</button></a>
-                                <a><button type="button"  class="btn btn-warning" onclick="borrarCampos()">Cancelar</button></a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div>
-                    <h2>Peliculas Disponibles</h2>
+            <div id="container-clientes" class="container-fondo">
+                <div id="list-clients">
+                    <span id="title-head">Mostrar Clientes</span>
+                    <table id="table-container">
+                        <thead>
+                            <tr>
+                                <th>Nombre Completo</th>
+                                <th>Cliente Frencuente</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
+                                <th>Mas Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($listaClientes as $cliente)
+                            <tr>
+                                <td>
+                                    {{$cliente['nombreCompleto']}}
+                                </td>
+                                <td>
+                                    {{$cliente['clienteFrecuente']}}
+                                </td>
+                                <td>
+                                    {{$cliente['fechaNacimiento']}}
+                                </td>
+                                <td>
+                                    {{$cliente['correo']}}
+                                </td>
+                                <td>
+                                    {{$cliente['telefono']}}
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.clientesdetalles', $cliente['codigoCliente']) }}" class="btn btn-secondary">Mostrar Detalle</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
     

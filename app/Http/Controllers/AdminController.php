@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
 
 class AdminController extends Controller
 {   
@@ -25,7 +26,42 @@ class AdminController extends Controller
     }
 
     public function adminClientes(){
-        return view('administradorclientes');
+        $client = new Client();
+        try {
+            $response = $client->request('GET', 'http://localhost:8080/api/cliente/obtener');
+    
+            if($response->getStatusCode() == 200){
+                // Si da un 200 ok se almacena la respuesta en n¿una varuable
+                $contenido = $response->getBody()->getContents();
+                // convierte el JSON a un array asociativo
+                $listaClientes = json_decode($contenido, true);
+                return view('administradorclientes' , compact('listaClientes'));
+            }
+    
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return response('Error: ' . $e->getMessage(), 500);
+        }
+    }
+
+    public function adminClientesDetalles(){
+        // $client = new Client();
+        // try {
+        //     $response = $client->request('GET', 'http://localhost:8080/api/cliente/obtener');
+    
+        //     if($response->getStatusCode() == 200){
+        //         // Si da un 200 ok se almacena la respuesta en n¿una varuable
+        //         $contenido = $response->getBody()->getContents();
+        //         // convierte el JSON a un array asociativo
+        //         $listaClientes = json_decode($contenido, true);
+        //         return view('administradorclientes' , compact('listaClientes'));
+        //     }
+    
+        // } catch (\Exception $e) {
+        //     // Manejo de errores
+        //     return response('Error: ' . $e->getMessage(), 500);
+        // }
+        return view('mostrarFacturas');
     }
 
     public function adminSalasModificar(){
@@ -197,4 +233,46 @@ class AdminController extends Controller
         }
     }
     
+    public function adminEventosCrear(Request $request){
+        $codigoPelicula = $request->input('codigopelicula');
+        $codigoSala= $request->input('codigosala');
+        $horaInicio= $request->input('horainicio');
+        $fechaEvento= $request->input('fechaevento');
+        $idioma= $request->input('idioma');
+        $formato= $request->input('formato');
+        
+        $client = new Client();
+        try {
+            // Realiza una solicitud POST a una URL específic
+
+            $response = $client->request('POST', 'http://localhost:8080/api/evento/crear', [
+                // Configurar los parámetros de consulta en la URL
+                'query' => [
+                    'codigopelicula' => $codigoPelicula,
+                    'codigosala' => $codigoSala,
+                ],
+                // Configurar los parámetros en el cuerpo de la solicitud (request body) como JSON
+                'json' => [
+                    'codigopelicula' => $codigoPelicula,
+                    'codigosala' => $codigoSala,
+                    'horaInicio' => $horaInicio,
+                    'fechaEvento' => $fechaEvento,
+                    'idioma' => $idioma,
+                    'formato' => $formato,
+                ],
+            ]);
+
+                if($response->getStatusCode()==200){
+                    return view('administradorsalas');
+                    // return redirect()->route('landingpage');
+                }
+
+        } catch (\Exception $e) {
+            return response('Error' .$e->getMessage(), 500);
+        }
+    }
+
+    public function adminEventosMostrar(){
+
+    }
 }

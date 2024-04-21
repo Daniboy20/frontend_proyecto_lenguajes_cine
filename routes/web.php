@@ -47,7 +47,14 @@ Route::delete('/administrador/salas/eliminar',[AdminController::class, 'eliminar
 
 
 Route::get('/administrador/eventos', [AdminController::class, 'adminEventos'])->name('admin.eventos');
+Route::post('/administrador/eventos/crear', [AdminController::class, 'adminEventosCrear'])->name('admin.eventoscrear');
+Route::get('/administrador/eventos/mostrar', [AdminController::class, 'adminEventosMostrar'])->name('admin.mostrareventos');
+
+
+
+
 Route::get('/administrador/clientes', [AdminController::class, 'adminClientes'])->name('admin.clientes');
+Route::get('/administrador/clientes/detalles', [AdminController::class, 'adminClientesDetalles'])->name('admin.clientesdetalles');
 
 // Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');
 
