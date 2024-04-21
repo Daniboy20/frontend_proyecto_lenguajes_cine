@@ -33,7 +33,7 @@ body{
 }
 
 
-.container{
+#container-peliculas{
     background-color: var(--color-fondo-secundario);
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@ a:hover{
     border-radius: 20px;
 }
 
-#salas-option{
+#eventos-option{
     background-color: rgba(79, 79, 79, 0.48);
     transition: background-color 0.3s ease;
 }
@@ -142,13 +142,13 @@ a:hover{
     row-gap: 25px;
 }
 
-.estilo-fondo{
+#agregar-tiposala{
     color: var(--color-texto);
     margin-top: 70px;
     margin-left: 90px;
 }
 
-#mostrar-peliculas, #editar-sala{
+#mostrar-peliculas{
     margin-left: 90px;
     margin-top: 50px;
     color: var(--color-texto);
@@ -166,6 +166,13 @@ a:hover{
     flex-direction: column;
     row-gap: 20px;
 }
+
+#button-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
 
 #button-container{
     display: flex;

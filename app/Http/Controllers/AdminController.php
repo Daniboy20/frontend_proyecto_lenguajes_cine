@@ -151,5 +151,50 @@ class AdminController extends Controller
             return response('Error' .$e->getMessage(), 500);
         }
     }
+
+    public function crearSala(Request $request){
+        $nombreTipoSala = $request->input('nombretiposala');
+        $client = new Client();
+        try {
+            $response = $client->request('POST', 'http://localhost:8080/api/sala/crear?nombreTipoSala='.$nombreTipoSala,
+                [
+                    'Content-Type' => 'application/json',
+                    'json'=>[
+                        'nombreTipoSala' => $nombreTipoSala
+                    ],
+                ]);
+
+                if($response->getStatusCode()==200){
+                    return view('administradorsalas');
+                    // return redirect()->route('landingpage');
+                }
+
+        } catch (\Exception $e) {
+            return response('Error' .$e->getMessage(), 500);
+        }
+    }
+
+    public function eliminarSala(Request $request) {
+        $codigosala = $request->input('codigosala');
+        $client = new Client();
+        try {
+            $response = $client->delete('http://localhost:8080/api/sala/eliminar?codigoSala='.$codigosala);
+
+            // $response = $client->request('DELETE', 'http://localhost:8080/api/pelicula/eliminar', [
+            //     'json' => [
+            //         'titulo' => $titulo
+            //     ]
+            // ]);
+    
+            if($response->getStatusCode() == 200){
+                // Si la solicitud es exitosa, devuelve una respuesta o realiza otras acciones necesarias
+                return view('administradorsalas');
+            }
+    
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return response('Error: ' . $e->getMessage(), 500);
+        }
+    }
     
 }

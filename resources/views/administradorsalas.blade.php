@@ -56,8 +56,8 @@
             </div>
             {{-- <-----------------------Divs para las opciones----------------------> --}}
         
-            <div id="container-peliculas">
-                <div id="agregar-tiposala">
+            <div id="container-tiposalas" class="container">
+                <div id="agregar-tiposala" class="estilo-fondo">
                     <h2>Crear Tipo de Sala</h2>
                     <div class="inputs-container">
                         <form action='{{route('admin.tiposalasguardar')}}' method="POST" class="inputs-position">
@@ -73,6 +73,32 @@
                         <div><a href='{{route('admin.salasmodificar')}}'><button type="submit" class="btn btn-success">Editar Tipo Sala</button></a> </div>
                     </div>
                 </div>
+                    <div id="agregar-sala" class="estilo-fondo">
+                        <h2>Crear Sala</h2>
+                        <div class="inputs-container">
+                            <form action='{{route('admin.crearsala')}}' method="POST" class="inputs-position">
+                                @csrf
+                                <input type="text" id="nombretiposala" name="nombretiposala" class="custom-input" placeholder="normal/vip">
+                                <div class="form-group">
+                                    <a><button type="submit" class="btn btn-success">Crear Sala</button></a>
+                                    <a><button type="button"  class="btn btn-warning" onclick="borrarCampos()">Cancelar</button></a>
+                                </div>
+                            </form>
+                            <div><a href='{{route('admin.salasmodificar')}}'><button type="submit" class="btn btn-success">Editar Tipo Sala</button></a> </div>
+                        </div>
+
+                        <div>
+                            <span>Eliminar Una Pelicula</span>
+                            <form action='{{route('admin.eliminarsala')}}' method="POST" class="inputs-position" id="eliminarPeliculaForm">
+                                @csrf
+                                @method('DELETE')
+                                <input type="text" id="codigosala" name="codigosala" class="custom-input" placeholder="Codigo Sala">
+                                <div id="button-container"class="form-group">
+                                    <a><button type="submit" class="btn btn-danger">Eliminar Sala</button></a>
+                                    <a><button type="button"  class="btn btn-secondary" onclick="borrarCampos()">Cancelar</button></a>
+                                </div>
+                            </form>
+                        </div>
                 {{-- <div>
                     <h2>Editar Una Sala</h2>
                     <div class="inputs-container">
