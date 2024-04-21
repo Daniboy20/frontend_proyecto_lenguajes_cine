@@ -46,6 +46,10 @@ Route::delete('/administrador/salas/eliminar',[AdminController::class, 'eliminar
 
 
 Route::get('/administrador/eventos', [AdminController::class, 'adminEventos'])->name('admin.eventos');
+
+
+
+Route::get('/administrador/clientes', [AdminController::class, 'adminClientes'])->name('admin.clientes');
 Route::get('/administrador/clientes', [AdminController::class, 'adminClientes'])->name('admin.clientes');
 
 // Route::post('/guardar/pelicula', [AdminController::class, 'guardarPelicula'])->name('admin.guardarpelicula');

@@ -25,7 +25,22 @@ class AdminController extends Controller
     }
 
     public function adminClientes(){
-        return view('administradorclientes');
+        $client = new Client();
+        try {
+            $response = $client->request('GET', 'http://localhost:8080/api/cliente/obtener');
+    
+            if($response->getStatusCode() == 200){
+                // Si da un 200 ok se almacena la respuesta en n¿una varuable
+                $contenido = $response->getBody()->getContents();
+                // convierte el JSON a un array asociativo
+                $listaClientes = json_decode($contenido, true);
+                return view('administradorclientes' , compact('listaClientes'));
+            }
+    
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return response('Error: ' . $e->getMessage(), 500);
+        }
     }
 
     public function adminSalasModificar(){
@@ -197,4 +212,5 @@ class AdminController extends Controller
         }
     }
     
+    // http://localhost:8080/api/cliente/obtener
 }
