@@ -42,4 +42,10 @@ class LandingPageController extends Controller
         }
         return view('landingpage');
     }  
+
+    public function verPeliculaInfo()
+    {
+        
+        
+    }
 }

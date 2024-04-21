@@ -82,20 +82,25 @@
                                 @foreach($eventosDisponibles as $evento)
                             <!-- Hacer un for Each, Para cada Pelicula -->
                                 <div class="showMovie">
-                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                    <div class="imageFunctionContainer">
+                                    <a class="image" href="{{route('landingpage.ver')}}">
+                                    <img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt="">
+                                    </a>    
+                                            
+                                    </div>
                                         <div class="descriptionContainer">
                                         <h5>{{$evento['pelicula']['titulo']}}</h5>
                                         <h6>{{$evento['fechaEvento']}} | {{$evento['horaInicio']}}</h6>
                                         </div>
                                         
                                 </div>
-
                                 @endforeach
                             </div>
                             
 
                         </div>
               
+                        <!-- EVENTOS NO DISPONIBLES -->
                         <div class="proximamenteContainer">
                             <h1>Proximamente</h1>
                             <div class="lines"></div>
@@ -108,6 +113,7 @@
                                         <h5>{{$evento['pelicula']['titulo']}}</h5>
                                         <h5>{{$evento['fechaEvento']}}</h5>
                                         </div>
+
                                         
                                 </div>
 
