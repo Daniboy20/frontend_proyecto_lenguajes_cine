@@ -15,24 +15,24 @@
             <div class="cinemaplusContainer">
                 <div class="bodyContainer">
                     <div class="showMovieContainer">
-                        <div class="carteleraContainer">
                                 <h1>{{$evento[0]['pelicula']['titulo']}}</h1>
                                 <div class="lines" id="line1"></div>
                                 <div class="functionContainer">
                                 <!-- Hacer un for Each, Para cada Pelicula -->
                                      <div class="showMovie">
                                          <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                         <div class="lines" id="line2"></div>
                                              <div class="descriptionContainer">
                                                 <h3>Detalles</h3>
-                                                <h4>Sala: {{$evento[0]['formato']}}</h4>                                  
+                                                <h4>Sala: {{$evento[0]['sala']['tipoSala']['descripcion']}}</h4> 
+                                                <h4>Fomato: {{$evento[0]['formato']}}</h4>                                  
                                                 <h4>Idioma: {{$evento[0]['idioma']}}</h4>
                                                 <h4>Duracion: {{$evento[0]['pelicula']['duracion']}}</h4>
                                                 <h4>Fecha: {{$evento[0]['fechaEvento']}}</h4>
                                                 <h4>Hora Inicio: {{$evento[0]['horaInicio']}}</h4>
                                             </div>
-                                
-                                </div>  
-                            </div>       
+                                            <a class="btn btn-danger" href="#" >Comprar Boleto</a>
+                                </div>      
                         </div>
                     </div>
                 <div>
