@@ -67,7 +67,7 @@
                         <div id="button-container"class="form-group">
                             <a><button type="submit" class="btn btn-secondary">GuardarPelicula</button></a>
                             <a><button type="button"  class="btn btn-danger" onclick="borrarCampos()">Cancelar</button></a>
-                            <a><button type="button"  class="btn btn-dark" onclick="direccionarPelis()">Mostrar Peliculas</button></a>
+                            <a  href="{{ route('admin.mostrarpeliculas') }}" class="btn btn-dark">Mostrar Peliculas</a>
                         </div>
                     </form>
                 </div>
