@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-Use Carbon\Carbon;
+use App\Http\Controllers\LandingPageController;
 
 class ClienteController extends Controller
 {
@@ -21,6 +21,12 @@ class ClienteController extends Controller
     public function editarCliente()
     {
         return view('clienteEditar');
+    }
+
+    protected $landingPageController;
+
+    public function __construct(LandingPageController $landingPageController) {
+        $this->landingPageController = $landingPageController;
     }
 
 
@@ -46,7 +52,8 @@ class ClienteController extends Controller
                 ]);
 
                 if($response->getStatusCode()==200){
-                    return view('landingpage');
+                    return redirect()->route('landingpage.home');
+                    //return view('landingpage');
                     // return redirect()->route('landingpage');
                 }
 
@@ -73,7 +80,8 @@ class ClienteController extends Controller
                         
                         $data = json_decode($response->getBody()->getContents(), true);
                         session(['data' => $data]);
-                        return view('landingpage');
+                        return redirect()->route('landingpage.home');
+                        //return view('landingpage');
                     }
         }catch (\Exception $e) {
             return response('Error' .$e->getMessage(), 500);
@@ -105,7 +113,8 @@ class ClienteController extends Controller
                 if($response->getStatusCode()==200){
                     $data = json_decode($response->getBody()->getContents(), true);
                     session(['data' => $data]);
-                    return view('landingpage');
+                    return redirect()->route('landingpage.home');
+                    //return view('landingpage');
                     // return redirect()->route('landingpage');
                 }
 
@@ -118,7 +127,8 @@ class ClienteController extends Controller
     public function cerrarSesion()
     {
         session()->forget('data');
-        return view('landingpage');
+        return redirect()->route('landingpage.home');
+       // return view('landingpage');
     }
 
 }

@@ -70,56 +70,55 @@
                     </div>
 
                 <div class="movieContainer">
+
+                <!-- If de disponibilidad  --> 
+                
                     <div class="carteleraContainer">
                             <h1>En Cartelera</h1>
                             <div class="lines" id="line1"></div>
 
                             <div class="functionContainer">
 
+                                @foreach($eventosDisponibles as $evento)
                             <!-- Hacer un for Each, Para cada Pelicula -->
                                 <div class="showMovie">
                                     <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
                                         <div class="descriptionContainer">
-                                        <h5>Avatar</h5>
+                                        <h5>{{$evento['pelicula']['titulo']}}</h5>
+                                        <h6>{{$evento['fechaEvento']}} | {{$evento['horaInicio']}}</h6>
                                         </div>
+                                        
                                 </div>
 
-                                <div class="showMovie">
-                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
-                                        <div class="descriptionContainer">
-                                        <h5>Nombre de Pelicula</h5>
-                                        </div>
-                                </div>
-
-                                <div class="showMovie">
-                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
-                                        <div class="descriptionContainer">
-                                        <h5>Avatar</h5>
-                                        </div>
-                                </div>
-
-                                <div class="showMovie">
-                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
-                                        <div class="descriptionContainer">
-                                        <h5>Avatar</h5>
-                                        </div>  
-                                </div>
-
+                                @endforeach
                             </div>
+                            
 
                         </div>
-
+              
                         <div class="proximamenteContainer">
                             <h1>Proximamente</h1>
                             <div class="lines"></div>
                             
+                            @foreach($eventosNoDisponibles as $evento)
+                            <!-- Hacer un for Each, Para cada Pelicula -->
+                                <div class="showMovie">
+                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                        <div class="descriptionContainer">
+                                        <h5>{{$evento['pelicula']['titulo']}}</h5>
+                                        <h5>{{$evento['fechaEvento']}}</h5>
+                                        </div>
+                                        
+                                </div>
+
+                                @endforeach
                             
 
 
                             <div class="nextFunctionContainer">
 
                             </div>
-                            
+                       
                         </div>
                 </div>
                     
