@@ -96,6 +96,13 @@ input.search
     }
 }
 
+input.search:focus
+{
+    background-color: rgba(77, 77, 77, 0.54);
+    box-shadow: 0 0 6px rgba(245, 40, 37, 0.559);
+}
+
+
 button.btn
 {
     padding: 0.5em;

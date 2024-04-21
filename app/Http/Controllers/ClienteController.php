@@ -12,6 +12,17 @@ class ClienteController extends Controller
         return view('registro');
     }
 
+    public function buscarCliente()
+    {
+        return view('login');
+    }
+
+    public function editarCliente()
+    {
+        return view('clienteEditar');
+    }
+
+
     public function guardarCliente(Request $request)
     {
         $nombreCompleto = $request->input('nombreCompleto');
@@ -42,4 +53,37 @@ class ClienteController extends Controller
             return response('Error' .$e->getMessage(), 500);
         }
     }
+
+    public function obtenerCliente(Request $request)
+    {
+        $correo = $request->input('correo');
+        $contrasenia = $request->input('contrasenia');
+        $client = new Client();
+        
+        try {
+                $response = $client->request('GET', 'http://localhost:8080/api/cliente/obtenerPorCorreo', [
+                    'query' => [
+                        'correo' => $correo,
+                        'contrasenia' => $contrasenia
+                    ],
+                ]);
+                    if($response->getStatusCode()==200){
+                        
+                        $data = json_decode($response->getBody()->getContents(), true);
+                      //   echo($data['correo']);
+                      //  echo($data['contrasenia']);
+                        // return redirect()->route('landingpage');
+                        return view('landingpage');
+                    }
+        }catch (\Exception $e) {
+            return response('Error' .$e->getMessage(), 500);
+        }
+    }
+
+    public function actualizarCliente(Request $request)
+    {
+        return view('landingpage');
+    }
+
+
 }

@@ -16,25 +16,10 @@
         
         <div class="registroContainer">
 
-            <h1>Registro De Usuario</h1>
+            <h1>Iniciar Sesion</h1>
             
-            <form action='{{route('cliente.guardarCliente')}}' method="POST">
+            <form action='{{route('cliente.obtenerCliente')}}' method="POST">
                 @csrf
-                
-                <div class="sectionContainer">
-                <label for="nombreCompleto"><i class="fa-solid fa-user"></i></label>
-                <input type="text" pattern="([A-Za-záéíóúäëïöü]+\s?)+" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre Completo" required><br><br>
-                </div>
-                
-                <div class="sectionContainer">
-                <label for="fechaNacimiento"><i class="fa-solid fa-calendar"></i></label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="YYYY-MM-DD" required><br><br>
-                </div>
-
-                <div class="sectionContainer">
-                <label for="telefono"><i class="fa-solid fa-phone"></i></label>
-                <input type="text" pattern="(\(?\+504\)?)? *[983]\d{3}-?\d{4}" id="telefono" name="telefono" placeholder="00000000" required><br><br>
-                </div>
 
                 <div class="sectionContainer">
                 <label for="correo"><i class="fa-solid fa-envelope"></i></label>
@@ -47,7 +32,7 @@
                 </div>
 
                 <div>
-                    <span>¿Ya Estas Registrado? <a href='{{route ('cliente.buscarCliente') }}'>Inicia Sesion</span>
+                    <span>¿No estas Registrado? <a href='{{route ('cliente.crearCliente') }}'>Registrate</span>
                 </div>
 
                 <div class="buttonContainer">
@@ -56,7 +41,7 @@
                     </div>
 
                     <div class="form-group">
-                        <a><button type="submit" class="btn btn-danger">Guardar</button></a>
+                        <a><button type="submit" class="btn btn-success">Iniciar Sesion</button></a>
                     </div>
                 </div>
 

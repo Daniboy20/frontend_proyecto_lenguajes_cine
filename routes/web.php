@@ -18,10 +18,13 @@ use App\Http\Controllers\LandingPageController;
 
 Route::get('/',[LandingPageController::class,'home'])->name('landingpage.home');
 
-Route::get('/crear/cliente',[ClienteController::class,'crearCliente'])->name('cliente.crearCliente');
-Route::post('/guardar/cliente',[ClienteController::class,'guardarCliente'])->name('cliente.guardarCliente');
+Route::get('/cliente/crear',[ClienteController::class,'crearCliente'])->name('cliente.crearCliente');
+Route::post('/cliente/guardar',[ClienteController::class,'guardarCliente'])->name('cliente.guardarCliente');
+Route::get('/cliente/buscar',[ClienteController::class,'buscarCliente'])->name('cliente.buscarCliente');
+Route::post('cliente/obtener',[ClienteController::class,'obtenerCliente'])->name('cliente.obtenerCliente');
 
-
+Route::get('/cliente/editar',[ClienteController::class,'editarCliente'])->name('cliente.editarCliente');
+Route::put('/cliente/actualizar',[ClienteController::class,'actualizarCliente'])->name('cliente.actualizarCliente');
 
 // Route::get('/crear/pelicula', [AdminController::class, 'crearPelicula'])->name('admin.crearPelicula');
 Route::get('/administrador', [AdminController::class, 'adminIndex'])->name('admin.index');
