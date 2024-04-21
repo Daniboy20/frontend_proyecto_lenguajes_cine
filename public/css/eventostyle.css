@@ -105,7 +105,7 @@ a:hover{
     margin-bottom: 20px;
 }
 
-.custom-input {
+.custom-input , .custom-date-input{
     width: 487px;
     height: 40px;
     border: none;
