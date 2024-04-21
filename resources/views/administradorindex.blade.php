@@ -64,6 +64,8 @@
                         @csrf
                         <input type="text" id="titulo" name="titulo" class="custom-input" placeholder="Titulo">
                         <input type="text" id="duracion" name="duracion" class="custom-input" placeholder="HH:MM:SS">
+                        <textarea  rows="4" cols="50" style="height: 100px;" id="descripcion" name="descripcion" class="custom-input" placeholder="Descripcion"></textarea>
+                        <input type="text" id="imagen" name="imagen" class="custom-input" placeholder="Img Url">
                         <div id="button-container"class="form-group">
                             <a><button type="submit" class="btn btn-secondary">GuardarPelicula</button></a>
                             <a><button type="button"  class="btn btn-danger" onclick="borrarCampos()">Cancelar</button></a>

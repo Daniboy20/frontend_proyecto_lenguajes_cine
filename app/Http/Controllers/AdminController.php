@@ -94,6 +94,8 @@ class AdminController extends Controller
     public function guardarPelicula(Request $request){
         $titulo = $request->input('titulo');
         $duracion = $request->input('duracion');
+        $descripcion = $request->input('descripcion');
+        $imagen= $request ->input('imagen');
         $client = new Client();
         try {
             $response = $client->request('POST', 'http://localhost:8080/api/pelicula/crear',
@@ -101,7 +103,9 @@ class AdminController extends Controller
                     'Content-Type' => 'application/json',
                     'json'=>[
                         'titulo' => $titulo,
-                        'duracion' => $duracion
+                        'duracion' => $duracion,
+                        'descripcion' => $descripcion,
+                        'imagen'=> $imagen
                     ],
                 ]);
 

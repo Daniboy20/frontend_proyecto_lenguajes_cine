@@ -64,6 +64,8 @@
                         <tr>
                             <th>#</th>
                             <th>Título</th>
+                            <th>Descripcion</th>
+                            <th>Poster</th>
                             <th>Duración</th>
                             <th>Disponible</th>
                         </tr>
@@ -76,6 +78,12 @@
                             </td>
                             <td>
                                 {{$pelicula['titulo']}}
+                            </td>
+                            <td>
+                                {{$pelicula['descripcion']}}
+                            </td>
+                            <td>
+                                <img src="{{$pelicula['imagen']}}" alt="" width="90px" height="120px">
                             </td>
                             <td>
                                 {{$pelicula['duracion']}}

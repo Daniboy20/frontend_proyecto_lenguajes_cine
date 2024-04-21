@@ -60,7 +60,8 @@
             <div id="agregar-evento">
                 <h2>Agregar Evento</h2>
                 <div class="inputs-container">
-                    <form action='{{route('admin.eventoscrear' )}}' method="POST" class="inputs-position" onsubmit="obtenerPeliculas()">
+                    {{-- onsubmit="obtenerPeliculas()" --}}
+                    <form action='{{route('admin.eventoscrear')}}' method="POST" class="inputs-position">
                         @csrf
                         <input type="text" id="codigopelicula" name="codigopelicula" class="custom-input" placeholder="Codigo Pelicula">
                         <input type="text" id="codigosala" name="codigosala" class="custom-input" placeholder="Codigo Sala">
