@@ -20,7 +20,7 @@
                                 <div class="functionContainer">
                                 <!-- Hacer un for Each, Para cada Pelicula -->
                                      <div class="showMovie">
-                                         <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                         <div class="imageFunctionContainer"><img class="imageFunction" src="{{$evento[0]['pelicula']['imagen']}}" alt=""></div>
                                          <div class="lines" id="line2"></div>
                                              <div class="descriptionContainer">
                                                 <h3>Detalles</h3>

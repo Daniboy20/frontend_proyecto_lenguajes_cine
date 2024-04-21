@@ -84,7 +84,7 @@
                                 <div class="showMovie">
                                     <div class="imageFunctionContainer">
                                     <a class="image" href="{{route('landingpage.ver', ['evento' =>$evento['pelicula']['titulo']] )}}">
-                                    <img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt="">
+                                    <img class="imageFunction" src="{{$evento['pelicula']['imagen'] }}" alt="">
                                     </a>    
                                             
                                     </div>
@@ -108,7 +108,7 @@
                             @foreach($eventosNoDisponibles as $evento)
                             <!-- Hacer un for Each, Para cada Pelicula -->
                                 <div class="showMovie">
-                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{asset('img/functionimage.jpg') }}" alt=""></div>
+                                    <div class="imageFunctionContainer"><img class="imageFunction" src="{{$evento['pelicula']['imagen']}}" alt=""></div>
                                         <div class="descriptionContainer">
                                         <h5>{{$evento['pelicula']['titulo']}}</h5>
                                         <h5>{{$evento['fechaEvento']}}</h5>
