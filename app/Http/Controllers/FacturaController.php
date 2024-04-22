@@ -21,7 +21,6 @@ class FacturaController extends Controller
                 $asientos = json_decode($contenido, true);
                 return view('realizarCompra' , compact('codigoEvento', 'asientos'));
             }
-    
         } catch (\Exception $e) {
             // Manejo de errores
             return response('Error: ' . $e->getMessage(), 500);

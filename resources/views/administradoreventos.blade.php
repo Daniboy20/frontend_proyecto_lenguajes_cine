@@ -63,12 +63,12 @@
                     {{-- onsubmit="obtenerPeliculas()" --}}
                     <form action='{{route('admin.eventoscrear')}}' method="POST" class="inputs-position">
                         @csrf
-                        <input type="text" id="codigopelicula" name="codigopelicula" class="custom-input" placeholder="Codigo Pelicula">
-                        <input type="text" id="codigosala" name="codigosala" class="custom-input" placeholder="Codigo Sala">
+                        <input type="text" id="codigopelicula" name="codigopelicula" class="custom-input" placeholder="Codigo Pelicula" required>
+                        <input type="text" id="codigosala" name="codigosala" class="custom-input" placeholder="Codigo Sala" required>
                         <input type="text" id="horainicio" name="horainicio" class="custom-input" placeholder="HH:MM:SS">
-                        <input type="date" id="fechaevento" name="fechaevento" placeholder="YY-MM-DD">
-                        <input type="text" id="idioma" name="idioma" class="custom-input" placeholder="Idioma">
-                        <input type="text" id="formato" name="formato" class="custom-input" placeholder="Formato">
+                        <input type="date" id="fechaevento" name="fechaevento" placeholder="YY-MM-DD" required>
+                        <input type="text" id="idioma" name="idioma" class="custom-input" placeholder="Idioma" required>
+                        <input type="text" id="formato" name="formato" class="custom-input" placeholder="Formato" required>
                         <div id="button-container"class="form-group">
                             <a><button type="submit" class="btn btn-secondary">Guardar Evento</button></a>
                             <a><button type="button"  class="btn btn-danger" onclick="borrarCampos()">Cancelar</button></a>

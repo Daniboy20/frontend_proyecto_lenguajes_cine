@@ -12,20 +12,21 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="grid-container">
-
-        @foreach ($asientos as $asiento)
-        <div class="grid-item" id="{{$asiento['codigoAsiento']}}">
-            <i class="fa-solid fa-couch"></i>
-        </div>
-        {{-- {{$asiento['codigoAsiento']}} --}}
-        @endforeach
-        {{-- @for ($i = 1; $i <= count($asientos); $i++)
-            <div class="grid-item" id="elemento{{ $i }}">
+<STYLE>A {text-decoration: none;} </STYLE>
+<body class="p-3 mb-2 bg-dark text-white">
+    <div class="showMovieContainer">
+        <h1>Selecciona Un Asiento</h1>
+        <div class="grid-container">
+            @foreach ($asientos as $asiento)
+            <div class="grid-item" id="{{$asiento['codigoAsiento']}}">
                 <i class="fa-solid fa-couch"></i>
             </div>
-        @endfor --}}
-    </div>
-</body>
+            {{-- {{$asiento['codigoAsiento']}} --}}
+            @endforeach
+        </div>
+        <div class="showMovieContainer"><a href="#" class="confirmar">Confirmar</a></div>
+        
+    </body>
 </html>
+
+
