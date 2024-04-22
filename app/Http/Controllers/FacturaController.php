@@ -8,14 +8,7 @@ use GuzzleHttp\Client;
 
 class FacturaController extends Controller
 {
-
-    
-
-    public function irCompras($evento){
-
-        @dd($evento);
-        return view('landingpage.home');
-        /*
+    public function irCompras($codigoEvento, $codigoSala){
         // http://localhost:8080/api/asientos/obtener?codigoSala=1
         $client = new Client();
         try {
@@ -26,13 +19,11 @@ class FacturaController extends Controller
                 $contenido = $response->getBody()->getContents();
                 // convierte el JSON a un array asociativo
                 $asientos = json_decode($contenido, true);
-                return view('mostrarEventos' , compact('eventos', 'asientos'));
+                return view('realizarCompra' , compact('codigoEvento', 'asientos'));
             }
         } catch (\Exception $e) {
             // Manejo de errores
             return response('Error: ' . $e->getMessage(), 500);
-        }
-        return view('realizarCompra' , compact('evento'));
-        */
+        }   
     }
 }

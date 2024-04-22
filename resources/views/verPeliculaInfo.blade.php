@@ -30,8 +30,11 @@
                                                 <h4>Duracion: {{$evento[0]['pelicula']['duracion']}}</h4>
                                                 <h4>Fecha: {{$evento[0]['fechaEvento']}}</h4>
                                                 <h4>Hora Inicio: {{$evento[0]['horaInicio']}}</h4>
+                                                {{-- @dd($evento[0]) --}}
+                                                {{-- @dd($evento[0]['sala']['codigoSala']) --}}
+                                                
                                             </div>
-                                            <a class="btn btn-danger" href="{{route('cliente.hacercompra' , ['evento_id'=>$evento[0]]) }}" >Comprar Boleto</a>
+                                            <a class="btn btn-danger" href="{{route('cliente.hacercompra',['codigoEvento' => $evento[0]['codigoEvento'], 'codigoSala' => $evento[0]['sala']['codigoSala']] )}}" >Comprar Boleto</a>
                                 </div>      
                         </div>
                     </div>
