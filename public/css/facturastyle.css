@@ -39,7 +39,7 @@ div.showMovieContainer
 }
 
 .grid-item {
-    background-color: rgba(0, 128, 0, 0.648); /* Verde con opacidad */
+    background-color: rgba(3, 108, 3, 0.648); /* Verde con opacidad */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;

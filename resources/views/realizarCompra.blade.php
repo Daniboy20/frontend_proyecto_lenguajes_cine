@@ -14,8 +14,7 @@
 </head>
 <body>
     <div class="grid-container">
-        
-        @for ($i = 1; $i <= 16; $i++)
+        @for ($i = 1; $i <= count($asientos); $i++)
             <div class="grid-item" id="elemento{{ $i }}">
                 <i class="fa-solid fa-couch"></i>
             </div>
