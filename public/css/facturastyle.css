@@ -19,7 +19,7 @@ div.showMovieContainer
     justify-content: center;
     align-items: center;
     border-radius: 1em;
-    width: 30%;
+    width: 60%;
     padding: 2em;
 
 
@@ -40,7 +40,7 @@ div.showMovieContainer
 .grid-container {
     margin-top: 4em;
     display: grid;
-    grid-template-columns: repeat(4, 70px);
+    grid-template-columns: repeat(10, 70px);
     grid-template-rows: repeat(4, 70px);
     gap: 5px;
 }
@@ -73,4 +73,5 @@ div.showMovieContainer
 {
     color: rgb(22, 121, 171);
 }
+
 
