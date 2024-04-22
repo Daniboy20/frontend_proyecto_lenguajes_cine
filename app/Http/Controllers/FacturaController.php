@@ -40,7 +40,6 @@ public function mandarAFactura(Request $request){
     $codigoEvento = $request->input('codigoEvento');
     $array = explode(",", $miniList);
     $cantidadBoletos  = count($array);
-
     return view('llenarFactura' , compact('cantidadBoletos', 'codigoEvento'));
 }
 
@@ -71,7 +70,9 @@ public function crearFactura(Request $request){
               ]);
                  if($response->getStatusCode()==200){
                     return redirect()->route('landingpage.home');
-                     // return redirect()->route('landingpage');
+                    
+
+
                  }
 
          } catch (\Exception $e) {
@@ -79,11 +80,6 @@ public function crearFactura(Request $request){
          }
 }
 
-    public function guardarFactura(Request $request)
-    {
-        return view('landingpage');
-    }
 
-    
 
 }

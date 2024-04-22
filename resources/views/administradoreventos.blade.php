@@ -66,7 +66,7 @@
                         <input type="text" id="codigopelicula" name="codigopelicula" class="custom-input" placeholder="Codigo Pelicula" required>
                         <input type="text" id="codigosala" name="codigosala" class="custom-input" placeholder="Codigo Sala" required>
                         <input type="text" id="horainicio" name="horainicio" class="custom-input" placeholder="HH:MM:SS">
-                        <input type="date" id="fechaevento" name="fechaevento" placeholder="YY-MM-DD" required>
+                        <input type="date" id="fechaevento" name="fechaevento" class="custom-input" placeholder="YY-MM-DD" required>
                         <input type="text" id="idioma" name="idioma" class="custom-input" placeholder="Idioma" required>
                         <input type="text" id="formato" name="formato" class="custom-input" placeholder="Formato" required>
                         <div id="button-container"class="form-group">

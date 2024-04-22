@@ -13,8 +13,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="container-cliente" >
-            <div id="agregar-peliculas">
+<div id="principal-container" >
+            <div id="">
                 <h2>Editar Informacion</h2>
                 <div class="inputs-container">
                     <form action='{{route('cliente.actualizarCliente')}}' method="POST" class="inputs-position">
