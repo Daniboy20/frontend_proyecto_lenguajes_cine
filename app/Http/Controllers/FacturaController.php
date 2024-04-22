@@ -33,4 +33,40 @@ public function irCompras($codigoEvento, $codigoSala){
     } 
 }
 
+public function crearFactura(Request $request){
+        $miniList= $request->input('miniList');
+        $codigoEvento = $request->input('codigoEvento');
+        echo($miniList);
+        // $client = new Client();
+        // try {
+        //     // Realiza una solicitud POST a una URL específic
+        //     // http://localhost:8080/api/evento/crear?codigopelicula=2&codigosala=3
+        //     $response = $client->request('POST', 'http://localhost:8080/api/detallefactura/crear',
+        //         [   
+        //             'query'=>[
+        //                 'codigopelicula'=>$codigopelicula,
+        //                 'codigosala'=>$codigosala
+        //             ],
+        //             'Content-Type' => 'application/json',
+        //             'json'=>[
+        //                 'codigoPelicula' => $codigopelicula,
+        //                 'codigoSala' => $codigosala,
+        //                 'horaInicio' => $horaInicio,
+        //                 'fechaEvento' => $fechaEvento,
+        //                 'idioma' => $idioma,
+        //                 'formato' => $formato
+        //             ],
+        //         ]);
+
+        //         if($response->getStatusCode()==200){
+        //             return view('administradoreventos');
+        //             // return redirect()->route('landingpage');
+        //         }
+
+        // } catch (\Exception $e) {
+        //     return response('Error' .$e->getMessage(), 500);
+        // }
+    return view('llenarFactura' , compact('miniList', 'codigoEvento'));
+}
+
 }
