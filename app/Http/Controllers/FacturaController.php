@@ -45,15 +45,10 @@ public function mandarAFactura(Request $request){
 }
 
 public function crearFactura(Request $request){
-        $miniList= $request->input('miniList');
         $codigoEvento = $request->input('codigoEvento');
+        $cantidadBoletos = $request->input('cantidadBoletos');
         $numeroTarjeta = $request->input('numeroTarjeta');
 
-
-        $array = explode(",", $miniList);
-        $cantidadBoletos  = count($array);
-        echo($cantidadBoletos);
-         
          $client = new Client();
          try {
 
@@ -63,25 +58,25 @@ public function crearFactura(Request $request){
                     'codigoCliente'=> session('data')['codigoCliente'],
                     'codigoEvento' => $codigoEvento,
                     'cantidadBoletos' => $cantidadBoletos,
-                    'numeroTarjeta'=>$numeroTarjeta = 11231314,
+                    'numeroTarjeta'=>$numeroTarjeta,
 
                      ],
                      'Content-Type' => 'application/json',
                      'json'=>[
-                        
+                        'codigoCliente'=> session('data')['codigoCliente'],
+                        'codigoEvento' => $codigoEvento,
+                        'cantidadBoletos' => $cantidadBoletos,
                         'numeroTarjeta'=>$numeroTarjeta,
                   ],
               ]);
                  if($response->getStatusCode()==200){
-                     return view('llenarFactura');
+                    return redirect()->route('landingpage.home');
                      // return redirect()->route('landingpage');
                  }
 
          } catch (\Exception $e) {
              return response('Error' .$e->getMessage(), 500);
          }
-    return view('llenarFactura' , compact('miniList', 'codigoEvento'));
-    
 }
 
     public function guardarFactura(Request $request)
