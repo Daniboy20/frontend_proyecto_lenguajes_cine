@@ -12,6 +12,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
+<STYLE>A {text-decoration: none;} </STYLE>
 <body class="p-3 mb-2 bg-dark text-white">
     <div class="showMovieContainer">
         <h1>Selecciona Un Asiento</h1>
@@ -23,7 +24,8 @@
             {{-- {{$asiento['codigoAsiento']}} --}}
             @endforeach
         </div>
-    <div class="showMovieContainer">
+        <div class="showMovieContainer"><a href="#" class="confirmar">Confirmar</a></div>
+        
     </body>
 </html>
 
