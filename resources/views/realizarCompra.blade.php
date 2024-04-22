@@ -16,56 +16,57 @@
 <body class="p-3 mb-2 bg-dark text-white">
     <div class="showMovieContainer">
         <h1>Selecciona Un Asiento</h1>
-        <div class="grid-container">
-            {{-- @foreach ($asientos as $asiento)
-            <div class="grid-item" id="{{$asiento['codigoAsiento']}}"">
+        <div class="grid-container" id="contenedor-asientos">
+            {{-- <div class="grid-item-red" id="${codigoAsiento}">
                 <i class="fa-solid fa-couch"></i>
             </div>
-            {{$asiento['codigoAsiento']}}
-
-            @endforeach
-
-
-            @foreach ($boletos as $boleto)
-                {{$boleto['asiento']['codigoAsiento']}}
-            @endforeach --}}
+            <div class="grid-item" id="${codigoAsiento}">
+                <i class="fa-solid fa-couch"></i>
+            </div> --}}
         </div>
-
-        <div class="grid-container">
-            <script>
-                // Convertir las colecciones PHP a arrays de JavaScript
-                var asientos = <?php echo json_encode($asientos); ?>;
-                var boletos = <?php echo json_encode($boletos); ?>;
-        
-                // Iterar sobre los asientos
-                for (var i = 0; i < asientos.length; i++) {
-                    // Obtener el código de asiento actual
-                    var codigoAsiento = asientos[i].codigoAsiento;
-        
-                    // Iterar sobre los boletos para comparar con el asiento actual
-                    for (var j = 0; j < boletos.length; j++) {
-                        // Obtener el código de asiento del boleto actual
-                        var codigoAsientoBoleto = boletos[j].asiento.codigoAsiento;
-        
-                        // Comparar los códigos de asiento
-                        if (codigoAsiento == codigoAsientoBoleto) {
-                            // Si hay coincidencia, imprimir el número de asiento
-                            // var divAsientos = document.getElementById('grid-container');
-
-                            console.log('El asiento ' + codigoAsiento + ' coincide con un boleto.');
-                            // O cualquier otra acción que desees realizar
-                        }if(codigoAsiento != codigoAsientoBoleto){
-                            console.log('El asiento ' + codigoAsiento + 'verde');
-                        }
-                    }
-                }
-            </script>
-        </div>
-        
         <div class="showMovieContainer"><a href="{{route('admin.eventos')}}" class="confirmar">Confirmar</a></div>
         
         
 
+
+
+
+        <script>
+            // Convertir las colecciones PHP a arrays de JavaScript
+            var asientos = <?php echo json_encode($asientos); ?>;
+            var boletos = <?php echo json_encode($boletos); ?>;
+        
+            // Iterar sobre los asientos
+            for (var i = 0; i < asientos.length; i++) {
+                var codigoAsiento = asientos[i].codigoAsiento;
+                var asientoCoincide = false; // Bandera para controlar si el asiento coincide con un boleto
+        
+                for (var j = 0; j < boletos.length; j++) {
+                    var codigoAsientoBoleto = boletos[j].asiento.codigoAsiento;
+        
+                    if (codigoAsiento == codigoAsientoBoleto) {
+                        console.log('El asiento ' + codigoAsiento + ' coincide con un boleto.');
+                        asientoCoincide = true; // El asiento coincide con un boleto
+                        document.getElementById('contenedor-asientos').innerHTML += `
+                            <div class="grid-item-red" id="${codigoAsiento}">
+                                <i class="fa-solid fa-couch"></i>
+                            </div>
+                        `;
+                        break; // Detener la iteración sobre los boletos para este asiento
+                    }
+                }
+        
+                if (!asientoCoincide) {
+                    console.log('El asiento ' + codigoAsiento + ' es verde.');
+                    document.getElementById('contenedor-asientos').innerHTML += `
+                        <div class="grid-item" id="${codigoAsiento}">
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                    `;
+                }
+            }
+
+        </script>
     </body>
 </html>
 
