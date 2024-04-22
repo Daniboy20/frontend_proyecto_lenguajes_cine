@@ -31,7 +31,51 @@ div.showMovieContainer
     
 }
 
+/* Estilos para el grid container */
 .grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 70px);
+    grid-template-rows: repeat(4, 70px);
+    gap: 5px;
+}
+
+/* Estilos para los elementos del grid */
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 128, 0, 0.8);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 40px;
+    color: #ffffff; 
+}
+
+/* Estilos al pasar el cursor sobre los elementos del grid */
+.grid-item:hover {
+    background-color: rgba(2, 102, 2, 0.964);
+}
+
+/* Estilos para el ícono dentro de los elementos */
+/* .grid-item i {
+    font-size: 40px;
+    color: #ffffff; 
+} */
+
+/* Estilos para los elementos con fondo rojo */
+.grid-item-red {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0.525);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 40px;
+    color: #ffffff; 
+}
+
+
+/* .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 70px);
     grid-template-rows: repeat(4, 70px);
@@ -39,7 +83,7 @@ div.showMovieContainer
 }
 
 .grid-item {
-    background-color: rgba(3, 108, 3, 0.648); /* Verde con opacidad */
+    background-color: rgba(3, 108, 3, 0.648);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -49,14 +93,14 @@ div.showMovieContainer
 }
 
 .grid-item:hover {
-    background-color: rgba(0, 128, 0, 0.8); /* Verde con opacidad */
+    background-color: rgba(0, 128, 0, 0.8); 
 }
 
 .grid-item:active {
-    background-color: red; /* Rojo */
+    background-color: red; 
 }
 
 .grid-item i {
     color: #ffffff;
     font-size: 40px;
-}
+} */

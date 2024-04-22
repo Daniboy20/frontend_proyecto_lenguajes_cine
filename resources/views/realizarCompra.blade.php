@@ -14,11 +14,18 @@
 </head>
 <body>
     <div class="grid-container">
-        @for ($i = 1; $i <= count($asientos); $i++)
+
+        @foreach ($asientos as $asiento)
+        <div class="grid-item" id="{{$asiento['codigoAsiento']}}">
+            <i class="fa-solid fa-couch"></i>
+        </div>
+        {{-- {{$asiento['codigoAsiento']}} --}}
+        @endforeach
+        {{-- @for ($i = 1; $i <= count($asientos); $i++)
             <div class="grid-item" id="elemento{{ $i }}">
                 <i class="fa-solid fa-couch"></i>
             </div>
-        @endfor
+        @endfor --}}
     </div>
 </body>
 </html>
