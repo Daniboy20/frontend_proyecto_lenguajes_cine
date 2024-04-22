@@ -31,10 +31,12 @@
     </div>
 
     <script>
+        // Convertir las colecciones PHP a arrays de JavaScript
         var asientos = <?php echo json_encode($asientos); ?>;
         var boletos = <?php echo json_encode($boletos); ?>;
         var miniList = [];
 
+        // Generar los asientos
         function generarAsientos() {
             var contenedorAsientos = document.getElementById('contenedor-asientos');
 
@@ -54,6 +56,7 @@
                 divAsiento.appendChild(iconoCouch);
                 contenedorAsientos.appendChild(divAsiento);
 
+                // Si el asiento no está ocupado, agregar evento de clic
                 if (!asientoCoincide) {
                     divAsiento.addEventListener('click', function () {
                         obtenerId(codigoAsiento);
@@ -62,6 +65,7 @@
             });
         }
 
+        // Function to handle seat selection
         function obtenerId(codigoAsiento) {
             var elementoAsiento = document.getElementById(codigoAsiento);
             let asiento = elementoAsiento.querySelector('.fa-couch');
@@ -79,9 +83,11 @@
             console.log(miniList);
         }
 
+        // Manejar el clic del botón "Confirmar"
         document.querySelector('.confirmar').addEventListener('click', function () {
+            // Crear un formulario oculto para enviar miniList a la ruta PHP
             var form = document.createElement('form');
-            form.action = "{{ route('admin.eventos') }}";
+            form.action = "{{ route('cliente.mandarAFactura') }}";
             form.method = 'POST';
 
             // Añadir CSRF token
@@ -91,7 +97,7 @@
             csrfInput.value = "{{ csrf_token() }}";
             form.appendChild(csrfInput);
 
-            // Añadir `miniList` como un input oculto
+            // Añadir miniList como un input oculto
             var miniListInput = document.createElement('input');
             miniListInput.type = 'hidden';
             miniListInput.name = 'miniList';
@@ -101,16 +107,18 @@
             var codigoEventoInput = document.createElement('input');
             codigoEventoInput.type = 'hidden';
             codigoEventoInput.name = 'codigoEvento';
-            codigoEventoInput.value = "{{ $codigoEvento }}";
+            codigoEventoInput.value = "{{ $codigoEvento }}"; // Asegúrate de pasar el valor correcto de $codigoEvento
             form.appendChild(codigoEventoInput);
 
-
-           
+            // Añadir el formulario al cuerpo del documento y enviarlo
             document.body.appendChild(form);
             form.submit();
         });
+
+        // Llamar a la función para generar los asientos
         generarAsientos();
     </script>
 </body>
 
 </html>
+

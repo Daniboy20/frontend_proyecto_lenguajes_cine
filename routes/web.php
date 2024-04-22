@@ -24,7 +24,10 @@ Route::get('/cliente/crear',[ClienteController::class,'crearCliente'])->name('cl
 Route::post('/cliente/guardar',[ClienteController::class,'guardarCliente'])->name('cliente.guardarCliente');
 Route::get('/cliente/buscar',[ClienteController::class,'buscarCliente'])->name('cliente.buscarCliente');
 Route::post('cliente/obtener',[ClienteController::class,'obtenerCliente'])->name('cliente.obtenerCliente');
-Route::get('cliente/factura/compra/{codigoEvento}/{codigoSala}',[FacturaController::class,'irCompras'])->name('cliente.hacercompra');
+Route::get('cliente/compra/asientos/{codigoEvento}/{codigoSala}',[FacturaController::class,'irCompras'])->name('cliente.hacercompra');
+Route::post('cliente/compra/asientos/factura',[FacturaController::class,'crearFactura'])->name('cliente.crearfactura');
+//Route::post('cliente/guardar/asientos/factura',[FacturaController::class,'guardarFactura'])->name('cliente.guardarfactura');
+Route::post('cliente/compra/asientos/factura/ir',[FacturaController::class,'mandarAFactura'])->name('cliente.mandarAFactura');
 
 Route::get('/cliente/editar',[ClienteController::class,'editarCliente'])->name('cliente.editarCliente');
 Route::put('/cliente/actualizar',[ClienteController::class,'actualizarCliente'])->name('cliente.actualizarCliente');
