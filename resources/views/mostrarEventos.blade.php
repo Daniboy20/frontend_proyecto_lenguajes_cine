@@ -119,7 +119,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div>
+                <div id="boton-regresar-evento">
                     <a href="{{route('admin.eventos')}}" class="btn btn-secondary">Regresar</a>
                 </div>
             </div>
