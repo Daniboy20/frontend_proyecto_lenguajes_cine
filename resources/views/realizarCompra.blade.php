@@ -24,7 +24,7 @@
             {{-- {{$asiento['codigoAsiento']}} --}}
             @endforeach
         </div>
-        <div class="showMovieContainer"><a href="#" class="confirmar">Confirmar</a></div>
+        <div class="showMovieContainer"><a href="{{route('admin.eventos')}}" class="confirmar">Confirmar</a></div>
         
     </body>
 </html>
