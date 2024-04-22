@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FacturaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingPageController;
 /*
@@ -23,6 +24,7 @@ Route::get('/cliente/crear',[ClienteController::class,'crearCliente'])->name('cl
 Route::post('/cliente/guardar',[ClienteController::class,'guardarCliente'])->name('cliente.guardarCliente');
 Route::get('/cliente/buscar',[ClienteController::class,'buscarCliente'])->name('cliente.buscarCliente');
 Route::post('cliente/obtener',[ClienteController::class,'obtenerCliente'])->name('cliente.obtenerCliente');
+Route::get('cliente/factura/compra/{evento}',[FacturaController::class,'irCompras'])->name('cliente.hacercompra');
 
 Route::get('/cliente/editar',[ClienteController::class,'editarCliente'])->name('cliente.editarCliente');
 Route::put('/cliente/actualizar',[ClienteController::class,'actualizarCliente'])->name('cliente.actualizarCliente');

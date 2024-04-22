@@ -31,7 +31,7 @@
                                                 <h4>Fecha: {{$evento[0]['fechaEvento']}}</h4>
                                                 <h4>Hora Inicio: {{$evento[0]['horaInicio']}}</h4>
                                             </div>
-                                            <a class="btn btn-danger" href="#" >Comprar Boleto</a>
+                                            <a class="btn btn-danger" href="{{route('cliente.hacercompra' , ['evento'=>$evento])}}" >Comprar Boleto</a>
                                 </div>      
                         </div>
                     </div>

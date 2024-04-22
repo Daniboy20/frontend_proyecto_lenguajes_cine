@@ -1,0 +1,62 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+div.showMovieContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    width: 100%;
+    padding: 2em;
+
+
+    @media screen and (max-width: 30em) {
+        width: 100%;
+    }
+
+
+    font-family: 'Inter';
+    margin-top: 3em;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+    gap: 5px;
+}
+
+.grid-item {
+    background-color: rgba(0, 128, 0, 0.648); /* Verde con opacidad */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item:hover {
+    background-color: rgba(0, 128, 0, 0.8); /* Verde con opacidad */
+}
+
+.grid-item:active {
+    background-color: red; /* Rojo */
+}
+
+.grid-item i {
+    color: #ffffff;
+    font-size: 40px;
+}
